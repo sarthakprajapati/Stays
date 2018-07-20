@@ -35,7 +35,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B" crossorigin="anonymous">
 </head>
 <body>
-<div class="card col-md-5 form-class mt-2 pt-3 pr-3 pd-3 pl-3">
+<div class="card col-md-5 form-class mt-2 pt-3 bgc-dark text-white">
     <h2>Hotel registration</h2>
     <p>Fill this form to register to our website.</p>
     <hr>
