@@ -1,0 +1,10 @@
+
+.form-class{
+    margin:auto;
+}
+.card{
+    padding: 50px !important;
+}
+#grad{
+    background: linear-gradient(red, yellow);
+}
