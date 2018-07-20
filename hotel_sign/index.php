@@ -1,25 +1,35 @@
-<?php require_once '../inc/db.php';
-
+<?php
+require_once '../inc/db.php';
+$type = 'alert-success';
+$msg = '';
     if($_SERVER['REQUEST_METHOD'] == 'POST'){
-        if(isset($_POST['name']) && isset($_POST['username']) && isset($_POST['email']) && isset($_POST['password']) && isset($_POST['repeat'])){
+        if($_POST['name'] != '' && $_POST['username'] != '' && $_POST['email'] != '' && $_POST['password'] != '' && $_POST['repeat'] != ''){
             if($_POST['password'] == $_POST['repeat']){
                 $name = $_POST['name'];
                 $username = $_POST['username'];
                 $email = $_POST['email'];
                 $password = $_POST['password'];
-                $res = mysqli_query($conn,'SELECT * FROM hotels WHERE username="'.$username.'" OR email="'.$email.'"');
-                if(mysqli_num_rows($res)>0){
-                    echo '<script>alert("Username or Email Already exists!");</script>';
+                $query = 'SELECT * FROM hotels WHERE username="'.$username.'" OR email="'.$email.'"';
+                $res = mysqli_query($conn,$query);
+                $result = mysqli_fetch_assoc($res);
+                if($result !== null){
+                    $type = 'alert alert-danger';
+                    $msg = 'Username or passworsd already in use!';
                 }else{
                     $password = password_hash($password, PASSWORD_DEFAULT);
-                    $res = mysqli_query($conn,'INSERT INTO hotels(fname, username, email, password) VALUES("'.$name.'","'.$username.'","'.$email.'","'.$password.'")');
+                    $query = 'INSERT INTO hotels(name, username, email, password) VALUES("'.$name.'","'.$username.'","'.$email.'","'.$password.'")';
+                    $res = mysqli_query($conn, $query);
                     if($res){
-                        $type = 'err';
+                        $type = 'alert alert-success';
                         $msg = 'Successfully registered!!';
                     }  
                 }
+            }else{
+                $type = 'alert alert-danger';
+                $msg = 'Password mismatch!';
             }
         }else{
+            $type = 'alert alert-danger';
             $msg = 'Fill the form properly to register!';
         }
     }
@@ -35,11 +45,11 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B" crossorigin="anonymous">
 </head>
 <body>
-<div class="card col-md-5 form-class mt-2 pt-3 bgc-dark text-white">
+<div class="card col-md-5 form-class mt-2 bgc-dark text-white">
+    <div class="<?php echo $type; $type = 'alert alert-success'?>"><?php echo $msg; $msg = ''?></div>
     <h2>Hotel registration</h2>
     <p>Fill this form to register to our website.</p>
-    <hr>
-    <form action="index.php" method="post">
+    <form method="post" style="margin:0;">
         <div class="form-group">
             <label for="name">Hotel Name * :</label>
             <input type="text" name="name" class="form-control">
