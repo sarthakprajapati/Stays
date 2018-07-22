@@ -9,7 +9,7 @@ $msg = '';
                 $username = $_POST['username'];
                 $email = $_POST['email'];
                 $password = $_POST['password'];
-                $query = 'SELECT * FROM value_table WHERE username="'.$username.'" OR email="'.$email.'';
+                $query = 'SELECT * FROM hotels WHERE username="'.$username.'" OR email="'.$email.'"';
                 $res = mysqli_query($conn,$query);
                 $result = mysqli_fetch_assoc($res);
                 if($result !== null){
