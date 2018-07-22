@@ -32,5 +32,5 @@
 
     <!-- Main CSS-->
     <link href="css/theme.css" rel="stylesheet" media="all">
-
+    <link rel="stylesheet" type="text/css" href="css/style.css">
 </head>

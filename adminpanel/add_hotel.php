@@ -1,3 +1,35 @@
+<?php
+require_once 'inc/db.php';
+$type = 'alert-success';
+$msg = '';
+    if($_SERVER['REQUEST_METHOD'] == 'POST'){
+        if($_POST['name'] != '' && $_POST['username'] != '' && $_POST['email'] != '' && $_POST['password'] != '' && $_POST['repeat'] != ''){
+            if($_POST['password'] == $_POST['repeat']){
+                $name = $_POST['name'];
+                $username = $_POST['username'];
+                $email = $_POST['email'];
+                $password = $_POST['password'];
+                if($db->exists($username,$email)){
+                    $type = 'alert alert-danger';
+                    $msg = 'Username or passworsd already in use!';
+                }else{
+                    $password = password_hash($password, PASSWORD_DEFAULT);
+                    $res = $db->addHotel($name, $username, $email, $password);
+                    if($res){
+                        $type = 'alert alert-success';
+                        $msg = 'Successfully registered!!';
+                    }  
+                }
+            }else{
+                $type = 'alert alert-danger';
+                $msg = 'Password mismatch!';
+            }
+        }else{
+            $type = 'alert alert-danger';
+            $msg = 'Fill the form properly to register!';
+        }
+    }
+?>
 <!-- TOP-STYLES -->
 <?php require_once "inc/top.php"; ?>
 <body class="animsition">
@@ -200,6 +232,35 @@
                                 <div class="au-card recent-report">
                                     <div class="au-card-inner">
                                         
+
+								 	<div class="card col-md-12 form-class">
+								    <div class="<?php echo $type; $type = 'alert alert-success'?>"><?php echo $msg; $msg = ''?></div>
+								    <form method="post" style="margin:0;">
+								        <div class="form-group">
+								            <label for="name">Hotel Name * :</label>
+								            <input type="text" name="name" class="form-control">
+								        </div>
+								        <div class="form-group">
+								            <label for="username">Username * :</label>
+								            <input type="text" name="username" class="form-control">
+								        </div>
+								        <div class="form-group">
+								            <label for="email">Email Id * :</label>
+								            <input type="email" name="email" class="form-control">
+								        </div>
+								        <div class="form-group">
+								            <label for="password">Password * :</label>
+								            <input type="password" name="password" class="form-control">
+								        </div>
+								        <div class="form-group">
+								            <label for="repeat">Confirm Password * </label>
+								            <input type="password" name="repeat" class="form-control">
+								        </div>
+								        <div class="form-group">
+								            <input type="submit" value="Submit" class="btn btn-success btn-block">
+								        </div>
+								    </form>
+</div>
                                     </div>
                                 </div>
                             </div>
