@@ -1,5 +1,5 @@
 <?php
-require_once '../inc/db.php';
+require_once 'inc/db.php';
 $type = 'alert-success';
 $msg = '';
     if($_SERVER['REQUEST_METHOD'] == 'POST'){
@@ -9,16 +9,12 @@ $msg = '';
                 $username = $_POST['username'];
                 $email = $_POST['email'];
                 $password = $_POST['password'];
-                $query = 'SELECT * FROM value_table WHERE username="'.$username.'" OR email="'.$email.'';
-                $res = mysqli_query($conn,$query);
-                $result = mysqli_fetch_assoc($res);
-                if($result !== null){
+                if($db->exists($username,$email)){
                     $type = 'alert alert-danger';
                     $msg = 'Username or passworsd already in use!';
                 }else{
                     $password = password_hash($password, PASSWORD_DEFAULT);
-                    $query = 'INSERT INTO hotels(name, username, email, password) VALUES("'.$name.'","'.$username.'","'.$email.'","'.$password.'")';
-                    $res = mysqli_query($conn, $query);
+                    $res = $db->addHotel($name, $username, $email, $password);
                     if($res){
                         $type = 'alert alert-success';
                         $msg = 'Successfully registered!!';
