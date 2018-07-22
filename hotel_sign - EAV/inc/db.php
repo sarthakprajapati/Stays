@@ -2,7 +2,7 @@
     class Database {
         private $host = 'localhost';
         private $user = 'root';
-        private $password = '';
+        private $password = 'Krishanu#98';
         private $dbname = 'eavstays';
 
         private $dbh;
