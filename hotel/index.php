@@ -61,6 +61,7 @@
 										<div class="form-group">
 							            	 <select class="form-control">
 							            	 	<option value="">-- Select Hotel -- </option>
+							            	 	
 							            	 	<option value="shangrila">Shangri-La</option>
 												<option value="chatrium">Chatrium</option>
 												<option value="fourseasons">Four Seasons</option>
