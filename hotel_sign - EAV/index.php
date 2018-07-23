@@ -1,5 +1,6 @@
 <?php
 require_once 'inc/db.php';
+require_once 'inc/session.php';
 $type = 'alert-success';
 $msg = '';
     if($_SERVER['REQUEST_METHOD'] == 'POST'){
@@ -18,6 +19,8 @@ $msg = '';
                     if($res){
                         $type = 'alert alert-success';
                         $msg = 'Successfully registered!!';
+                        setSession($name, $email, $db->getIdEntity($email));
+                        header('location:hotel.php');
                     }  
                 }
             }else{
