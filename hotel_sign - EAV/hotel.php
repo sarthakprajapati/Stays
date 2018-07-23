@@ -43,8 +43,8 @@
 <div class="mt-5 pt-5">
 <div class="card col-md-3 form-class bgc-dark text-white">
     <div class="<?php echo $type; $type = 'alert alert-success'?>"><?php echo $msg; $msg = ''?></div>
-    <h2>Hotel Services</h2>
-    <p>What services does your hotel provide</p>
+    <h2>Hotel Facilites</h2>
+    <p>What facilities does your hotel provide</p>
     <form method="post" style="margin:0;">
         <div class="form-group form-check">
             <input type="checkbox" value="true" name="parking" class="form-check-input">Parking</input>
