@@ -1,9 +1,8 @@
 <footer class="tm-black-bg">
 		<div class="container">
 			<div class="row">
-				<p class="tm-copyright-text">Copyright &copy; 2084 Your Company Name 
-                
-                | Designed by <a rel="nofollow" href="http://www.templatemo.com" target="_parent">templatemo</a></p>
+				<p class="tm-copyright-text">Copyright &copy; <?php echo date('Y'); ?>
+                </p>
 			</div>
 		</div>		
 	</footer>
