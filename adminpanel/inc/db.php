@@ -55,10 +55,10 @@
                 return false;
             }
         }
-        public function addHotel($name, $username, $email, $password){
+        public function addHotel($name/*, $username, $email, $password*/,$city, $image, $detail, $address){
             $this->query('INSERT INTO entity(type) VALUES("hotel")');
             $id = $this->latestId();
-            $res = $this->query('INSERT INTO value_table(entity_id, attr_val, value) VALUES('.$id.', '.$this->getAttribId('name').',"'.$name.'"),('.$id.', '.$this->getAttribId('email').',"'.$email.'"),('.$id.', '.$this->getAttribId('username').',"'.$username.'"),('.$id.', '.$this->getAttribId('password').',"'.$password.'")');
+            $res = $this->query('INSERT INTO value_table(entity_id, attr_val, value) VALUES('.$id.', '.$this->getAttribId('name').',"'.$name.'"),('.$id.', '.$this->getAttribId('images').',"'.$image.'"),('.$id.', '.$this->getAttribId('address').',"'.$address.'"),('.$id.', '.$this->getAttribId('detail').',"'.$detail.'"),('.$id.', '.$this->getAttribId('city').',"'.$city.'")');
             if($res){
                 return true;
             }else{
@@ -86,12 +86,18 @@
                 $attrib = $this->getAttrib($val['attr_val']);
                 if($attrib == 'name'){
                     $row['name'] = $val['value'];
-                }else if($attrib == 'username'){
-                    $row['username'] = $val['value'];
-                }else if($attrib == 'email'){
-                    $row['email'] = $val['value'];
+                }else if($attrib == 'city'){
+                    $row['city'] = $val['value'];
+                }else if($attrib == 'address'){
+                    $row['address'] = $val['value'];
                 }
-                if(isset($row['name']) && isset($row['username']) && isset($row['email'])){
+                else if($attrib == 'detail'){
+                    $row['detail'] = $val['value'];
+                }
+                else if($attrib == 'images'){
+                    $row['images'] = $val['value'];
+                }
+                if(isset($row['name']) && isset($row['city']) && isset($row['address']) && isset($row['detail']) && isset($row['images'])){
                     array_push($result, $row);
                     unset($row);
                 }

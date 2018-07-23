@@ -3,32 +3,34 @@ require_once 'inc/db.php';
 $type = 'alert-success';
 $msg = '';
     if($_SERVER['REQUEST_METHOD'] == 'POST'){
-        if($_POST['name'] != '' && $_POST['username'] != '' && $_POST['email'] != '' && $_POST['password'] != '' && $_POST['repeat'] != ''){
-            if($_POST['password'] == $_POST['repeat']){
+        if($_POST['name'] != '' && $_POST['detail'] !='' && $_POST['address'] != '' /*&& $_POST['username'] != '' && $_POST['email'] != '' && $_POST['password'] != '' && $_POST['repeat'] != ''*/){
+            /*if($_POST['password'] == $_POST['repeat']){*/
                 $name = $_POST['name'];
-                $username = $_POST['username'];
+                /*$username = $_POST['username'];
                 $email = $_POST['email'];
-                $password = $_POST['password'];
+                $password = $_POST['password'];*/
+                $detail = $_POST['detail'];
+                $address = $_POST['address'];
                 $image = $_FILES['image']['name'];
                 $image_tmp = $_FILES['image']['tmp_name'];
-                if($db->exists($username,$email)){
+                $city = $_POST['city'];
+                /*if($db->exists($username,$email)){
                     $type = 'alert alert-danger';
                     $msg = 'Username or passworsd already in use!';
-                }else{
-                    $password = password_hash($password, PASSWORD_DEFAULT);
-
-                    $res = $db->addHotel($name, $username, $email, $password,$image);
+                }*//*else{*/
+                    /*$password = password_hash($password, PASSWORD_DEFAULT);
+*/
+                    $res = $db->addHotel($name/*, $username, $email, $password*/,$city,$image,$detail,$address);
                     if($res){
                         move_uploaded_file($image_tmp,"images/$image");
                         $type = 'alert alert-success';
                         $msg = 'Successfully registered!!';
-
-                    }  
+                    /*} */ 
                 }
-            }else{
+            /*}else{
                 $type = 'alert alert-danger';
-                $msg = 'Password mismatch!';
-            }
+                $msg = 'Password mismatch!';*/
+            // }
         }else{
             $type = 'alert alert-danger';
             $msg = 'Fill the form properly to register!';
@@ -226,7 +228,6 @@ $msg = '';
                             <div class="col-md-12">
                                 <div class="overview-wrap">
                                     <h2 class="title-1">Add Hotel</h2>
-                                    <?php echo "<h1>$image</h1>"; ?>
                                     <button class="au-btn au-btn-icon au-btn--blue">
                                         <i class="zmdi zmdi-plus"></i>add item</button>
                                 </div>
@@ -246,7 +247,11 @@ $msg = '';
 								            <label for="name">Hotel Name * :</label>
 								            <input type="text" name="name" class="form-control">
 								        </div>
-								        <div class="form-group">
+                                        <div class="form-group">
+                                            <label for="city">City * :</label>
+                                            <input type="text" name="city" class="form-control">
+                                        </div>
+								        <!-- <div class="form-group">
 								            <label for="username">Username * :</label>
 								            <input type="text" name="username" class="form-control">
 								        </div>
@@ -261,7 +266,15 @@ $msg = '';
 								        <div class="form-group">
 								            <label for="repeat">Confirm Password * </label>
 								            <input type="password" name="repeat" class="form-control">
-								        </div>
+								        </div> -->
+                                        <div class="form-group">
+                                            <label for="detail">Detail * :</label>
+                                            <textarea name="detail" class="form-control"></textarea> 
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="address">Address * :</label>
+                                            <textarea name="address" class="form-control"></textarea> 
+                                        </div>
                                         <div class="form-group">
                                             <label for="image">Image * </label>
                                             <input type="file" id="image" name="image">

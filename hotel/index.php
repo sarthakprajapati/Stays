@@ -149,30 +149,28 @@ require_once 'include/db.php';?>
 					</div>
 				</div>								
 			</div>
-
+			<?php 
+				$hotels = $db->getAllHotel();
+				$i=0;
+				while($i<2){
+				foreach($hotels as $row){ 
+					?>
+				 
+			
 			<div class="col-lg-4 col-md-4 col-sm-6">
 				<div class="tm-home-box-1 tm-home-box-1-2 tm-home-box-1-center">
-					<img src="img/index-01.jpg" alt="image" class="img-responsive">
+					<img src="../adminpanel/images/<?php echo $row['images']; ?>" alt="image" class="img-responsive" height="300px">
 					<a href="#">
 						<div class="tm-green-gradient-bg tm-city-price-container">
-							<span>New York</span>
+							<span><?php echo $row['name']; ?></span>
 							<span>$6,600</span>
 						</div>	
 					</a>			
 				</div>				
 			</div>
-			<div class="col-lg-4 col-md-4 col-sm-6">
-				<div class="tm-home-box-1 tm-home-box-1-2 tm-home-box-1-right">
-					<img src="img/index-02.jpg" alt="image" class="img-responsive">
-					<a href="#">
-						<div class="tm-red-gradient-bg tm-city-price-container">
-							<span>Paris</span>
-							<span>$4,200</span>
-						</div>	
-					</a>					
-				</div>				
-			</div>
+						<?php  $i++;} } ?>
 		</div>
+
 	
 		<div class="section-margin-top">
 			<div class="row">				
