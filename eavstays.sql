@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 23, 2018 at 07:57 PM
+-- Generation Time: Jul 23, 2018 at 10:25 PM
 -- Server version: 10.1.31-MariaDB
 -- PHP Version: 7.2.7
 
@@ -39,6 +39,7 @@ CREATE TABLE `attribute` (
 --
 
 INSERT INTO `attribute` (`id`, `attribute`, `type`) VALUES
+(0, 'detail', 'char'),
 (1, 'name', 'char'),
 (2, 'email', 'char'),
 (3, 'username', 'char'),
@@ -50,7 +51,9 @@ INSERT INTO `attribute` (`id`, `attribute`, `type`) VALUES
 (9, 'gym', 'boolean'),
 (10, 'pets', 'boolean'),
 (11, 'price', 'float'),
-(12, 'image', 'char');
+(12, 'images', 'char'),
+(13, 'address', 'char'),
+(14, 'city', 'char');
 
 -- --------------------------------------------------------
 
@@ -71,7 +74,17 @@ INSERT INTO `entity` (`id`, `type`) VALUES
 (6, 'hotel'),
 (7, 'hotel'),
 (8, 'hotel'),
-(35, 'hotel');
+(35, 'hotel'),
+(36, 'hotel'),
+(37, 'hotel'),
+(38, 'hotel'),
+(39, 'hotel'),
+(40, 'hotel'),
+(41, 'hotel'),
+(42, 'hotel'),
+(43, 'hotel'),
+(44, 'hotel'),
+(45, 'hotel');
 
 -- --------------------------------------------------------
 
@@ -114,22 +127,16 @@ CREATE TABLE `value_table` (
 --
 
 INSERT INTO `value_table` (`id`, `entity_id`, `attr_val`, `value`) VALUES
-(15, 6, 1, 'Hotel Picadily'),
-(16, 6, 2, 'picadily@hotel.com'),
-(17, 6, 3, 'picadily'),
-(18, 6, 4, '$2y$10$R5J8g4BxqEC/tUI1TxCpA.qxIXGSJA2Y0gbZbjMEI.yXZSbuHX8Le'),
-(19, 7, 1, 'Swaraj'),
-(20, 7, 2, 'sarthakprajapati@live.in'),
-(21, 7, 3, 'sarthak_ishu11'),
-(22, 7, 4, '$2y$10$yAgxw4fQ0jWTiftN1HIt2.IkWn/nHOszN6gyE7Qt3hR9UfRiVKE/a'),
-(23, 8, 1, 'Stay'),
-(24, 8, 2, 'sarthakprajapati11@gmail.com'),
-(25, 8, 3, 'sarthakprajapati11'),
-(26, 8, 4, '$2y$10$di/cp3NbEV6O0nf3jaw3t.eURYnYecjbUOL0f38JGPGky10OtUi/2'),
-(131, 35, 1, 'saa'),
-(132, 35, 2, 'sas@gmail.com'),
-(133, 35, 3, 'sarthak_ishu11ss'),
-(134, 35, 4, '$2y$10$PhLlCYGGorzZZGTvxXyYYePXUMnROxPcl/rREGg8wp35tOOj.JgfG');
+(177, 44, 1, 'Four Seasons '),
+(178, 44, 12, 'mum-pool.jpg'),
+(179, 44, 13, '1/136, Doctor E Moses Road, Worli, Mumbai, Maharashtra 400018'),
+(180, 44, 0, 'In the heart of Worli, the business hub of India\'s largest city, Four Seasons Hotel Mumbai creates a tranquil, chic haven filled with sincere Indian hospitality.'),
+(181, 44, 14, 'Mumbai'),
+(182, 45, 1, 'Taj Lands End'),
+(183, 45, 12, 'taj-lands-end.jpg'),
+(184, 45, 13, 'Bandstand Fort, Byramji Jeejeebhoy Road, Mount Mary, Bandra West, Mumbai, Maharashtra 400050'),
+(185, 45, 0, 'Experience the best of Mumbai at Taj Lands End, located in its lifestyle hub, Bandra.With the ambience of a luxe sea-view retreat that belies the hotelâ€™s central location, we are your ideal choice for visits to this zesty city. '),
+(186, 45, 14, 'Mumbai');
 
 --
 -- Indexes for dumped tables
@@ -167,7 +174,7 @@ ALTER TABLE `value_table`
 -- AUTO_INCREMENT for table `entity`
 --
 ALTER TABLE `entity`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
 
 --
 -- AUTO_INCREMENT for table `users`
@@ -179,7 +186,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `value_table`
 --
 ALTER TABLE `value_table`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=135;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=187;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
