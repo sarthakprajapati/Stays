@@ -1,4 +1,5 @@
 <?php
+require "include/db.php";
     class Database {
         private $host = 'localhost';
         private $user = 'root';
@@ -45,20 +46,22 @@
             return $res['id'];
         }
 
-        public function addUser($name, $username, $email, $password){
+        public function addUser($name, $username, $email, $password, $image){
             $this->query('INSERT INTO entity(type) VALUES("user")');
             $id = $this->latestId();
-            $res = $this->query('INSERT INTO value_table(entity_id, attr_val, value) VALUES('.$id.', '.$this->getAttribId('name').',"'.$name.'"),('.$id.', '.$this->getAttribId('email').',"'.$email.'"),('.$id.', '.$this->getAttribId('username').',"'.$username.'"),('.$id.', '.$this->getAttribId('password').',"'.$password.'")');
+
+            $res = $this->query('INSERT INTO value_table(entity_id, attr_val, value) VALUES('.$id.', '.$this->getAttribId('name').',"'.$name.'"),('.$id.', '.$this->getAttribId('email').',"'.$email.'"),('.$id.', '.$this->getAttribId('username').',"'.$username.'"),('.$id.', '.$this->getAttribId('password').',"'.$password.'"),('.$id.', '.$this->getAttribId('image').',"'.$image.'")');
             if($res){
                 return true;
             }else{
                 return false;
             }
         }
-        public function addHotel($name, $username, $email, $password){
+        public function addHotel($name, $username, $email, $password, $image){
             $this->query('INSERT INTO entity(type) VALUES("hotel")');
             $id = $this->latestId();
-            $res = $this->query('INSERT INTO value_table(entity_id, attr_val, value) VALUES('.$id.', '.$this->getAttribId('name').',"'.$name.'"),('.$id.', '.$this->getAttribId('email').',"'.$email.'"),('.$id.', '.$this->getAttribId('username').',"'.$username.'"),('.$id.', '.$this->getAttribId('password').',"'.$password.'")');
+
+            $res = $this->query('INSERT INTO value_table(entity_id, attr_val, value) VALUES('.$id.', '.$this->getAttribId('name').',"'.$name.'"),('.$id.', '.$this->getAttribId('email').',"'.$email.'"),('.$id.', '.$this->getAttribId('username').',"'.$username.'"),('.$id.', '.$this->getAttribId('password').',"'.$password.'"),('.$id.', '.$this->getAttribId('image').',"'.$image.'")');
             if($res){
                 return true;
             }else{

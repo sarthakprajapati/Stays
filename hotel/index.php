@@ -1,4 +1,5 @@
-<?php require_once 'include/header.php';?>
+<?php require_once 'include/header.php';
+require_once 'include/db.php';?>
 <?php
 		$file = __FILE__;
     $filename = basename($file,'.php');
@@ -61,11 +62,11 @@
 										<div class="form-group">
 							            	 <select class="form-control">
 							            	 	<option value="">-- Select Hotel -- </option>
-							            	 	
-							            	 	<option value="shangrila">Shangri-La</option>
-												<option value="chatrium">Chatrium</option>
-												<option value="fourseasons">Four Seasons</option>
-												<option value="hilton">Hilton</option>
+							            	 	<?php 
+												    $hotels = $db->getAllHotel();
+												    foreach($hotels as $row){ ?>
+												    	<option value="<?php echo $row['id'] ; ?>"><?php echo $row['name'] ; ?></option>); 
+												<?php } ?>
 											</select> 
 							          	</div>
 							          	<div class="form-group">
@@ -309,6 +310,7 @@
 					</div>
 			   	</div>
 			</div>		
+			
 		</div>
 	</section>	
 	<?php require_once 'include/footer.php';?>

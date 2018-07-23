@@ -9,15 +9,20 @@ $msg = '';
                 $username = $_POST['username'];
                 $email = $_POST['email'];
                 $password = $_POST['password'];
+                $image = $_FILES['image']['name'];
+                $image_tmp = $_FILES['image']['tmp_name'];
                 if($db->exists($username,$email)){
                     $type = 'alert alert-danger';
                     $msg = 'Username or passworsd already in use!';
                 }else{
                     $password = password_hash($password, PASSWORD_DEFAULT);
-                    $res = $db->addHotel($name, $username, $email, $password);
+
+                    $res = $db->addHotel($name, $username, $email, $password,$image);
                     if($res){
+                        move_uploaded_file($image_tmp,"images/$image");
                         $type = 'alert alert-success';
                         $msg = 'Successfully registered!!';
+
                     }  
                 }
             }else{
@@ -221,6 +226,7 @@ $msg = '';
                             <div class="col-md-12">
                                 <div class="overview-wrap">
                                     <h2 class="title-1">Add Hotel</h2>
+                                    <?php echo "<h1>$image</h1>"; ?>
                                     <button class="au-btn au-btn-icon au-btn--blue">
                                         <i class="zmdi zmdi-plus"></i>add item</button>
                                 </div>
@@ -235,7 +241,7 @@ $msg = '';
 
 								 	<div class="card col-md-12 form-class">
 								    <div class="<?php echo $type; $type = 'alert alert-success'?>"><?php echo $msg; $msg = ''?></div>
-								    <form method="post" style="margin:0;">
+								    <form  action="" method="POST" enctype="multipart/form-data"> <!--IMPORTANT-->
 								        <div class="form-group">
 								            <label for="name">Hotel Name * :</label>
 								            <input type="text" name="name" class="form-control">
@@ -256,6 +262,10 @@ $msg = '';
 								            <label for="repeat">Confirm Password * </label>
 								            <input type="password" name="repeat" class="form-control">
 								        </div>
+                                        <div class="form-group">
+                                            <label for="image">Image * </label>
+                                            <input type="file" id="image" name="image">
+                                        </div>
 								        <div class="form-group">
 								            <input type="submit" value="Submit" class="btn btn-success btn-block">
 								        </div>
