@@ -78,6 +78,16 @@
             return $res['entity_id'];
         }
 
+
+        public function delHotel($delid){
+            $query = "DELETE FROM `entity` WHERE `entity`.`id` = $delid";
+            $this->query($query);
+            $query = "DELETE FROM `value_table` WHERE `value_table`.`entity_id` = $delid";
+            $this->query($query);
+            return true;
+        }
+
+
         public function getAllHotel(){
             $query = 'SELECT *,entity.id as e_id, value_table.id as v_id FROM value_table INNER JOIN entity ON entity.id = value_table.entity_id WHERE entity.type = "hotel"';
             $res = $this->query($query);
@@ -97,7 +107,8 @@
                 else if($attrib == 'images'){
                     $row['images'] = $val['value'];
                 }
-                if(isset($row['name']) && isset($row['city']) && isset($row['address']) && isset($row['detail']) && isset($row['images'])){
+                $row['id'] = $val['e_id'];
+                if(isset($row['name']) && isset($row['city']) && isset($row['address']) && isset($row['detail']) && isset($row['images']) && isset($row['id'])){
                     array_push($result, $row);
                     unset($row);
                 }

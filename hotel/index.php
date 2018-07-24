@@ -48,9 +48,6 @@ require_once 'include/db.php';?>
 					    <li role="presentation" class="active">
 					    	<a href="#hotel" aria-controls="hotel" role="tab" data-toggle="tab">Hotel</a>
 					    </li>
-					    <li role="presentation">
-					    	<a href="#car" aria-controls="car" role="tab" data-toggle="tab">Car Rental</a>
-					    </li>
 					</ul>
 
 					<!-- Tab panes -->

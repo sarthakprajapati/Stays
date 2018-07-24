@@ -14,7 +14,11 @@
                         </li>
                         <li>
                             <a href="add_hotel.php">
-                                <i class="fas fa-plus-circle"></i>Add Hotel</a>
+                            <i class="fas fa-plus-circle"></i>Add Hotel</a>
+                        </li>
+                        <li>
+                            <a href="edit_hotel.php">
+                            <i class="fas fa-pencil-alt "></i>All Hotels</a>
                         </li>
                     </ul>
                 </nav>
