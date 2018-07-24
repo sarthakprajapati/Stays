@@ -55,14 +55,49 @@ if(isset($_GET['del'])){
                                                     <td><?php echo $row['name']; ?></td>
                                                     <td><?php echo $row['city']; ?></td>
                                                     <td><?php echo "#"; ?></td>
-                                                    <td><a href="edit-user.php?edit=<?php echo $row['id']; ?>"><i class="fa fa-pencil-alt"></i></a></td>
+                                                    <td><a href="edit_hotel.php?edit=<?php echo $row['id']; ?>"><i class="fa fa-pencil-alt"></i></a></td>
                                                     <td><a href="edit_hotel.php?del=<?php echo $row['id']; ?>"><i class="fa fa-times"></i></a></td>
                                                   </tr>
                                                 </tbody>
                                             <?php } ?>
                                               </table>
                                         </div>
-                                                
+                                        
+                                            <?php 
+                                            if(isset($_GET['edit'])){
+                                                $edit_id = $_GET['edit'];
+                                                $row = $db->getHotel($edit_id);
+                                            ?>   
+                                            <div class="card col-md-12 form-class">
+                                    <div class="<?php echo $type; $type = 'alert alert-success'?>"><?php echo $msg; $msg = ''?></div>
+                                    <form  action="" method="GET" enctype="multipart/form-data"> <!--IMPORTANT-->
+                                        <div class="form-group">
+                                            <label for="name">Hotel Name * :</label>
+                                            <input type="text" name="name" class="form-control" value="<?php echo $row['name']; ?>">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="city">City * :</label>
+                                            <input type="text" name="city" class="form-control" value="<?php echo $row['city']; ?>">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="detail">Detail * :</label>
+                                            <textarea name="detail" class="form-control"><?php echo $row['detail']; ?></textarea> 
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="address">Address * :</label>
+                                            <textarea name="address" class="form-control"><?php echo $row['address']; ?></textarea> 
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="image">Image * </label>
+                                            <input type="file" id="image" name="image">
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="submit" value="Submit" class="btn btn-success btn-block">
+                                        </div>
+                                    </form>
+                                </div>
+                            <?php } ?>
+
                                     </div>
                                 </div>
                             </div>

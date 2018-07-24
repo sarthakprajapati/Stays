@@ -87,6 +87,34 @@
             return true;
         }
 
+        public function getHotel($id){
+            $query = 'SELECT * FROM `value_table` WHERE `value_table`.`entity_id` = $id';
+            $res = $this->query($query);
+            $result = array();
+            $val = mysqli_fetch_assoc($res);
+            while($val = mysqli_fetch_assoc($res)){
+                $attrib = $this->getAttrib($val['attr_val']);
+                if($attrib == 'name'){
+                    $row['name'] = $val['value'];
+                }else if($attrib == 'city'){
+                    $row['city'] = $val['value'];
+                }else if($attrib == 'address'){
+                    $row['address'] = $val['value'];
+                }
+                else if($attrib == 'detail'){
+                    $row['detail'] = $val['value'];
+                }
+                else if($attrib == 'images'){
+                    $row['images'] = $val['value'];
+                }
+                $row['id'] = $val['e_id'];
+                if(isset($row['name']) && isset($row['city']) && isset($row['address']) && isset($row['detail']) && isset($row['images']) && isset($row['id'])){
+                    array_push($result, $row);
+                    unset($row);
+                }
+            }
+            return $result;
+        }
 
         public function getAllHotel(){
             $query = 'SELECT *,entity.id as e_id, value_table.id as v_id FROM value_table INNER JOIN entity ON entity.id = value_table.entity_id WHERE entity.type = "hotel"';
@@ -115,6 +143,9 @@
             }
             return $result;
         }
+
+
+
     }
 
     $db = new Database;
