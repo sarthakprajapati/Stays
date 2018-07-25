@@ -87,6 +87,14 @@
             return true;
         }
 
+        public function getHotelById($id){
+           $res = $this->query('SELECT * FROM value_table WHERE entity_id='.$id);
+           while($val = mysqli_fetch_assoc($res)){
+               $attrib = $this->getAttrib($val['attr_val']);
+               $row[$attrib] = $val['value'];
+           }
+           return $row;
+       }
 
         public function getAllHotel(){
             $query = 'SELECT *,entity.id as e_id, value_table.id as v_id FROM value_table INNER JOIN entity ON entity.id = value_table.entity_id WHERE entity.type = "hotel"';
@@ -115,6 +123,9 @@
             }
             return $result;
         }
+
+
+
     }
 
     $db = new Database;

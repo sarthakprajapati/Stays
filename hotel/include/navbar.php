@@ -14,7 +14,6 @@
 						<ul>
 							<li><a href="index.php" class="<?php echo ($filename == 'index')?'active':'';?>">Home</a></li>
 							<li><a href="about.php" class="<?php echo ($filename == 'about')?'active':'';?>">About</a></li>
-							<li><a href="tours.php" class="<?php echo ($filename == 'tours')?'active':'';?>">Our Tours</a></li>
 							<li><a href="contact.php" class="<?php echo ($filename == 'contact')?'active':'';?>">Contact</a></li>
 							<li><a href="../SignUp/" class="<?php echo ($base_dir == 'SignUp')?'active':'';?>">SignUp</a></li>
 						</ul>

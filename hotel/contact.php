@@ -23,30 +23,7 @@
 	</section>
 
 	<!-- gray bg -->	
-	<section class="container tm-home-section-1" id="more">
-		<div class="row">
-			<!-- slider -->
-			<div class="flexslider effect2 effect2-contact tm-contact-box-1">
-				<ul class="slides">
-					<li>
-						<img src="img/world-map.png" alt="image" class="contact-image" />
-						<div class="contact-text">
-							<h2 class="slider-title">Lorem Isum Dolor</h2>
-							<h3 class="slider-subtitle">Gravida nibh vel velit auctor aliquet enean sollicitudin lorem quis auctor, nisi elit consequat ipsum</h3>
-							<p class="slider-description">Morbi accumsan ipsum velit. Nam nec tellus a odio tincidunt auctor a ornare odio. Sed non mauris vitae erat consequat auctor eu in elit. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. <br><br>
-                            Mauris in erat justo. Nullam ac urna eu felis dapibus condimentum sit amet a augue. Sed non neque elit. Sed ut imperdiet nisi. Proin condimentum fermentum nunc. Etiam pharetra, erat sed fermentum feugiat, velit mauris gestas quam, ut aliquam massa nisi.</p>
-							<div class="slider-social">
-								<a href="#" class="tm-social-icon"><i class="fa fa-twitter"></i></a>
-								<a href="#" class="tm-social-icon"><i class="fa fa-facebook"></i></a>
-								<a href="#" class="tm-social-icon"><i class="fa fa-pinterest"></i></a>
-								<a href="#" class="tm-social-icon"><i class="fa fa-google-plus"></i></a>
-							</div>
-						</div>			      
-					</li>
-				</ul>
-			</div>
-		</div>
-	</section>		
+	
 	
 	<!-- white bg -->
 	<section class="section-padding-bottom">
@@ -62,7 +39,9 @@
 				<!-- contact form -->
 				<form action="#" method="post" class="tm-contact-form">
 					<div class="col-lg-6 col-md-6">
-						<div id="google-map"></div>
+						<div class="col-md-12">
+                  <script src='https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyBXLUAvfnZWs0irxaMF8DBQscU64AhKqac'></script><div style='overflow:hidden;height:382px;width:100%;'><div id='gmap_canvas' style='height:382px;width:100%;'></div><style>#gmap_canvas img{max-width:none!important;background:none!important}</style></div> <a href='https://mapswebsite.net/'> </a> <script type='text/javascript' src='https://embedmaps.com/google-maps-authorization/script.js?id=f14cedb025e3f86b8ec7b7839aa95a36aad8847f'></script><script type='text/javascript'>function init_map(){var myOptions = {zoom:14,center:new google.maps.LatLng(28.380163,79.41054689999999),mapTypeId: google.maps.MapTypeId.SATELLITE};map = new google.maps.Map(document.getElementById('gmap_canvas'), myOptions);marker = new google.maps.Marker({map: map,position: new google.maps.LatLng(28.380163,79.41054689999999)});infowindow = new google.maps.InfoWindow({content:'<strong>Hartman College Road</strong><br>Paras Sweet<br>243001 Bareilly<br>'});google.maps.event.addListener(marker, 'click', function(){infowindow.open(map,marker);});infowindow.open(map,marker);}google.maps.event.addDomListener(window, 'load', init_map);</script> 
+            </div>
 						<div class="contact-social">
 							<a href="#" class="tm-social-icon tm-social-facebook"><i class="fa fa-facebook"></i></a>
 				      		<a href="#" class="tm-social-icon tm-social-dribbble"><i class="fa fa-dribbble"></i></a>
