@@ -69,7 +69,6 @@ if(isset($_GET['del'])){
                                             if(isset($_GET['edit'])){
                                                 $edit_id = $_GET['edit'];
                                                 $row = $db->getHotelById($edit_id);
-                                                }
                                             ?>   
                                             <div class="card col-md-12 form-class">
                                     <form  action="" method="GET" enctype="multipart/form-data"> <!--IMPORTANT-->
