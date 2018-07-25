@@ -3,7 +3,7 @@
   		<div class="container">
   			<div class="row">
   				<div class="col-lg-5 col-md-3 col-sm-3 tm-site-name-container">
-  					<a href="#" class="tm-site-name">Holiday</a>	
+  					<a href="#" class="tm-site-name">Stays</a>	
   				</div>
 	  			<div class="col-lg-7 col-md-9 col-sm-9">
 	  				<div class="mobile-menu-icon">
