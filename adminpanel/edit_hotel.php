@@ -66,7 +66,7 @@ if(isset($_GET['del'])){
                                             <?php 
                                             if(isset($_GET['edit'])){
                                                 $edit_id = $_GET['edit'];
-                                                $row = $db->getHotel($edit_id);
+                                                $row = $db->getHotelById($edit_id);
                                             ?>   
                                             <div class="card col-md-12 form-class">
                                     <div class="<?php echo $type; $type = 'alert alert-success'?>"><?php echo $msg; $msg = ''?></div>
