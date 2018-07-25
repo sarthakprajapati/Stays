@@ -42,6 +42,7 @@ if(isset($_GET['del'])){
                                                 <th>Hotel Name</th>
                                                 <th>City</th>
                                                 <th>Price</th>
+                                                <th>Room Details</th>
                                                 <th>Edit</th>
                                                 <th>Delete</th>
                                               </tr>
@@ -52,24 +53,29 @@ if(isset($_GET['del'])){
                                                 <tbody>
                                                   <tr>
                                                     <td><?php echo $row['id']; ?></td>
-                                                    <td><?php echo $row['name']; ?></td>
+                                                    <td ><?php echo $row['name']; ?></td>
                                                     <td><?php echo $row['city']; ?></td>
-                                                    <td><?php echo "#"; ?></td>
-                                                    <td><a href="edit_hotel.php?edit=<?php echo $row['id']; ?>"><i class="fa fa-pencil-alt"></i></a></td>
-                                                    <td><a href="edit_hotel.php?del=<?php echo $row['id']; ?>"><i class="fa fa-times"></i></a></td>
+                                                    <td style="text-align: center;"><?php echo "#"; ?></td>
+                                                    <td style="text-align: center;"><a href="add_room.php?id=<?php echo $row['id']; ?>"><i class="fa fa-plus-circle"></i></a></td>
+                                                    <td style="text-align: center;"><a href="edit_hotel.php?edit=<?php echo $row['id']; ?>"><i class="fa fa-pencil-alt"></i></a></td>
+                                                    <td style="text-align: center;"><a href="edit_hotel.php?del=<?php echo $row['id']; ?>"><i class="fa fa-times"></i></a></td>
                                                   </tr>
                                                 </tbody>
                                             <?php } ?>
                                               </table>
                                         </div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div>
                                         
                                             <?php 
                                             if(isset($_GET['edit'])){
                                                 $edit_id = $_GET['edit'];
                                                 $row = $db->getHotelById($edit_id);
+                                                echo "<h2 class='title-1' style='color:red;'>Edit  ". $row['name']."</h2><br><hr>";
                                             ?>   
                                             <div class="card col-md-12 form-class">
-                                    <div class="<?php echo $type; $type = 'alert alert-success'?>"><?php echo $msg; $msg = ''?></div>
                                     <form  action="" method="GET" enctype="multipart/form-data"> <!--IMPORTANT-->
                                         <div class="form-group">
                                             <label for="name">Hotel Name * :</label>

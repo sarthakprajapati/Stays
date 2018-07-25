@@ -4,16 +4,29 @@
         private $user = 'root';
         private $password = '';
         private $dbname = 'eavstays';
-
         private $dbh;
-
         public function __construct(){
             $this->dbh = mysqli_connect($this->host, $this->user, $this->password, $this->dbname);
             if(mysqli_connect_errno()){
                 die('Could not connect to the database!');
             }
         }
-
+        public function addRoom($values,$entity_id){
+            $this->query('INSERT INTO entity(type) VALUES("room")');
+            $id = $entity_id;
+            $flag = false;
+            foreach($values as $index => $row){
+                $res = $this->query('INSERT INTO value_table(entity_id, attr_val, value) VALUES('.$id.', '.$this->getAttribId($index).',"'.$row.'")');
+                if(!$res){
+                    $flag = true;
+                }
+            }
+            if(!$flag){
+                return true;
+            }else{
+                return false;
+            }
+        }
         public function query($sql){
             $res = mysqli_query($this->dbh, $sql);
             if($res){
@@ -22,16 +35,24 @@
                 return false;
             }
         }
-
-        public function exists($username, $email){
-            $res = $this->query('SELECT * FROM value_table WHERE value="'.$username.'" OR value="'.$email.'"');
-            if(mysqli_num_rows($res) > 0){
+        public function userExists($username){
+            $res = $this->query('SELECT * FROM users WHERE username="'.$username.'"');
+            if(mysqli_num_rows($res) == 1){
+                $row = mysqli_fetch_assoc($res);
+                return $row;
+            }else{
+                return false;
+            }
+        }
+        public function checkUserAdmin($username){
+            $res = $this->query('SELECT * FROM users WHERE username="'.$username.'"');
+            $res = mysqli_fetch_assoc($res);
+            if($res['role'] == 'admin'){
                 return true;
             }else{
                 return false;
             }
         }
-
         public function latestId(){
             $res = $this->query('SELECT MAX(id) FROM entity');
             if($res !== null){
@@ -44,7 +65,6 @@
             $res = mysqli_fetch_assoc($res);
             return $res['id'];
         }
-
         public function addUser($name, $username, $email, $password){
             $this->query('INSERT INTO entity(type) VALUES("user")');
             $id = $this->latestId();
@@ -65,20 +85,16 @@
                 return false;
             }
         }
-
         public function getAttrib($id){
             $res = $this->query('SELECT * FROM attribute WHERE id='.$id);
             $res = mysqli_fetch_assoc($res);
             return $res['attribute'];
         }
-
         public function getIdEntity($email){
             $res = $this->query('SELECT entity_id FROM value_table WHERE value="'.$email.'"');
             $res = mysqli_fetch_assoc($res);
             return $res['entity_id'];
         }
-
-
         public function delHotel($delid){
             $query = "DELETE FROM `entity` WHERE `entity`.`id` = $delid";
             $this->query($query);
@@ -86,7 +102,6 @@
             $this->query($query);
             return true;
         }
-
         public function getHotelById($id){
            $res = $this->query('SELECT * FROM value_table WHERE entity_id='.$id);
            while($val = mysqli_fetch_assoc($res)){
@@ -95,7 +110,6 @@
            }
            return $row;
        }
-
         public function getAllHotel(){
             $query = 'SELECT *,entity.id as e_id, value_table.id as v_id FROM value_table INNER JOIN entity ON entity.id = value_table.entity_id WHERE entity.type = "hotel"';
             $res = $this->query($query);
@@ -123,9 +137,5 @@
             }
             return $result;
         }
-
-
-
     }
-
     $db = new Database;

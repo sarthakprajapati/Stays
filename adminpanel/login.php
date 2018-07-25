@@ -1,3 +1,40 @@
+<?php
+    require_once 'inc/db.php';
+    $flag = '';
+    $msg = '';
+    $type = '';
+    if(isset($_POST['username']) && isset($_POST['password'])){
+        $username = $_POST['username'];
+        $password = $_POST['password'];
+        if($user = $db->userExists($username)){
+            if(password_verify($password, $user['password'])){
+                session_start();
+                $_SESSION['id'] = $user['id'];
+                $_SESSION['name'] = $user['fname'];
+                $_SESSION['username'] = $username;
+                $_SESSION['email'] = $user['email'];
+                if($db->checkUserAdmin($username)){
+                    header('location:index.php');
+                }else{
+                    header('location: ../hotel/index.php');
+                }
+            }else{
+                $flag = 'wrong password';
+            }
+        }else{
+            $flag = 'notfound';
+        }
+    }else{
+        $flag = 'empty';
+    }
+    if($flag == 'empty'){
+        $msg = 'Fill the form properly';
+    }else if($flag == 'notfound'){
+        $msg = 'User not found';
+    }else if($flag == 'wrong password'){
+        $msg = $flag;
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -42,15 +79,13 @@
                 <div class="login-wrap">
                     <div class="login-content">
                         <div class="login-logo">
-                            <a href="#">
-                                <img src="images/icon/logo.png" alt="CoolAdmin">
-                            </a>
-                        </div>
+                            <h1>Login here</h1>
+                            <p>Fill this form to login</p>
                         <div class="login-form">
-                            <form action="" method="post">
+                            <form method="post">
                                 <div class="form-group">
                                     <label>Email Address</label>
-                                    <input class="au-input au-input--full" type="email" name="email" placeholder="Email">
+                                    <input class="au-input au-input--full" type="text" name="username" placeholder="Username">
                                 </div>
                                 <div class="form-group">
                                     <label>Password</label>
@@ -65,12 +100,6 @@
                                     </label>
                                 </div>
                                 <button class="au-btn au-btn--block au-btn--green m-b-20" type="submit">sign in</button>
-                                <div class="social-login-content">
-                                    <div class="social-button">
-                                        <button class="au-btn au-btn--block au-btn--blue m-b-20">sign in with facebook</button>
-                                        <button class="au-btn au-btn--block au-btn--blue2">sign in with twitter</button>
-                                    </div>
-                                </div>
                             </form>
                             <div class="register-link">
                                 <p>
