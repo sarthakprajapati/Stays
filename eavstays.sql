@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 23, 2018 at 10:25 PM
+-- Generation Time: Jul 25, 2018 at 09:58 PM
 -- Server version: 10.1.31-MariaDB
 -- PHP Version: 7.2.7
 
@@ -53,7 +53,9 @@ INSERT INTO `attribute` (`id`, `attribute`, `type`) VALUES
 (11, 'price', 'float'),
 (12, 'images', 'char'),
 (13, 'address', 'char'),
-(14, 'city', 'char');
+(14, 'city', 'char'),
+(15, 'wifi', 'char'),
+(16, 'detail_room', 'char');
 
 -- --------------------------------------------------------
 
@@ -84,7 +86,23 @@ INSERT INTO `entity` (`id`, `type`) VALUES
 (42, 'hotel'),
 (43, 'hotel'),
 (44, 'hotel'),
-(45, 'hotel');
+(45, 'hotel'),
+(46, 'hotel'),
+(47, 'room'),
+(48, 'room'),
+(49, 'room'),
+(50, 'room'),
+(51, 'room'),
+(52, 'room'),
+(53, 'room'),
+(54, 'room'),
+(55, 'room'),
+(56, 'room'),
+(57, 'room'),
+(58, 'room'),
+(59, 'room'),
+(60, 'room'),
+(61, 'room');
 
 -- --------------------------------------------------------
 
@@ -136,7 +154,12 @@ INSERT INTO `value_table` (`id`, `entity_id`, `attr_val`, `value`) VALUES
 (183, 45, 12, 'taj-lands-end.jpg'),
 (184, 45, 13, 'Bandstand Fort, Byramji Jeejeebhoy Road, Mount Mary, Bandra West, Mumbai, Maharashtra 400050'),
 (185, 45, 0, 'Experience the best of Mumbai at Taj Lands End, located in its lifestyle hub, Bandra.With the ambience of a luxe sea-view retreat that belies the hotelâ€™s central location, we are your ideal choice for visits to this zesty city. '),
-(186, 45, 14, 'Mumbai');
+(186, 45, 14, 'Mumbai'),
+(187, 46, 1, 'The Muse Sarovar Portico'),
+(188, 46, 12, 'd6f2026858954c4cb23aa7967d505711-84956-53845.jpg'),
+(189, 46, 13, '88-89, Bijwasan Road, Kapashera, New Delhi, Delhi'),
+(190, 46, 0, 'Located in Kapashera, New Delhi, The Muse Sarovar Portico offers a comfortable stay for all. It offers easy access to the airport and railway station making it a convenient destination. The hotel presents the ideal blend of aesthetic and functionality to '),
+(191, 46, 14, 'Delhi');
 
 --
 -- Indexes for dumped tables
@@ -174,7 +197,7 @@ ALTER TABLE `value_table`
 -- AUTO_INCREMENT for table `entity`
 --
 ALTER TABLE `entity`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=62;
 
 --
 -- AUTO_INCREMENT for table `users`
@@ -186,7 +209,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `value_table`
 --
 ALTER TABLE `value_table`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=187;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=261;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
