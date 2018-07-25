@@ -53,12 +53,12 @@ if(isset($_GET['del'])){
                                                 <tbody>
                                                   <tr>
                                                     <td><?php echo $row['id']; ?></td>
-                                                    <td><?php echo $row['name']; ?></td>
+                                                    <td ><?php echo $row['name']; ?></td>
                                                     <td><?php echo $row['city']; ?></td>
-                                                    <td><?php echo "#"; ?></td>
-                                                    <td><a href="add_room.php?id=<?php echo $row['id']; ?>"><i class="fa fa-plus-circle"></i></a></td>
-                                                    <td><a href="edit_hotel.php?edit=<?php echo $row['id']; ?>"><i class="fa fa-pencil-alt"></i></a></td>
-                                                    <td><a href="edit_hotel.php?del=<?php echo $row['id']; ?>"><i class="fa fa-times"></i></a></td>
+                                                    <td style="text-align: center;"><?php echo "#"; ?></td>
+                                                    <td style="text-align: center;"><a href="add_room.php?id=<?php echo $row['id']; ?>"><i class="fa fa-plus-circle"></i></a></td>
+                                                    <td style="text-align: center;"><a href="edit_hotel.php?edit=<?php echo $row['id']; ?>"><i class="fa fa-pencil-alt"></i></a></td>
+                                                    <td style="text-align: center;"><a href="edit_hotel.php?del=<?php echo $row['id']; ?>"><i class="fa fa-times"></i></a></td>
                                                   </tr>
                                                 </tbody>
                                             <?php } ?>
