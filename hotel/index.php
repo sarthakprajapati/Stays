@@ -12,6 +12,13 @@ require_once 'include/db.php';?>
 		  <ul class="slides">
 		    <li>
 			    <div class="tm-banner-inner">
+			    	<div id="searchbar">
+		  				<form>
+		  					<div class="form-group">
+		  					<input type="text" name="q" placeholder="Search" class="form-control">
+		  					</div>
+		  				</form>
+		  			</div>
 					<h1 class="tm-banner-title">Find <span class="tm-yellow-text">The Best</span> Place</h1>
 					<p class="tm-banner-subtitle">For Your Holidays</p>
 					<a href="#more" class="tm-banner-link">Learn More</a>	
@@ -20,6 +27,13 @@ require_once 'include/db.php';?>
 		    </li>
 		    <li>
 			    <div class="tm-banner-inner">
+			    	<div id="searchbar">
+		  				<form>
+		  					<div class="form-group">
+		  					<input type="text" name="q" placeholder="Search" class="form-control">
+		  					</div>
+		  				</form>
+		  			</div>
 					<h1 class="tm-banner-title">Lorem <span class="tm-yellow-text">Ipsum</span> Dolor</h1>
 					<p class="tm-banner-subtitle">Wonderful Destinations</p>
 					<a href="#more" class="tm-banner-link">Learn More</a>	
@@ -28,6 +42,13 @@ require_once 'include/db.php';?>
 		    </li>
 		    <li>
 			    <div class="tm-banner-inner">
+			    	<div id="searchbar">
+		  				<form>
+		  					<div class="form-group">
+		  					<input type="text" name="q" placeholder="Search" class="form-control">
+		  					</div>
+		  				</form>
+		  			</div>
 					<h1 class="tm-banner-title">Proin <span class="tm-yellow-text">Gravida</span> Nibhvell</h1>
 					<p class="tm-banner-subtitle">Velit Auctor</p>
 					<a href="#more" class="tm-banner-link">Learn More</a>	
