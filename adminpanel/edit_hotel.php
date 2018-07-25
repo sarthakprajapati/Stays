@@ -64,11 +64,16 @@ if(isset($_GET['del'])){
                                             <?php } ?>
                                               </table>
                                         </div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div>
                                         
                                             <?php 
                                             if(isset($_GET['edit'])){
                                                 $edit_id = $_GET['edit'];
                                                 $row = $db->getHotelById($edit_id);
+                                                echo "<h2 class='title-1' style='color:red;'>Edit  ". $row['name']."</h2><br><hr>";
                                             ?>   
                                             <div class="card col-md-12 form-class">
                                     <form  action="" method="GET" enctype="multipart/form-data"> <!--IMPORTANT-->
