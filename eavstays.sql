@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.0.1
+-- version 4.8.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 26, 2018 at 08:28 PM
--- Server version: 10.1.32-MariaDB
--- PHP Version: 7.2.5
+-- Generation Time: Jul 26, 2018 at 10:17 PM
+-- Server version: 10.1.31-MariaDB
+-- PHP Version: 7.2.7
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -103,7 +103,9 @@ INSERT INTO `entity` (`id`, `type`) VALUES
 (71, 'room'),
 (72, 'room'),
 (73, 'room'),
-(77, 'book');
+(77, 'book'),
+(78, 'book'),
+(79, 'book');
 
 -- --------------------------------------------------------
 
@@ -126,7 +128,8 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `fname`, `username`, `email`, `password`, `role`) VALUES
 (1, 'Sarthak', 'sarthak_ishu11', 'sarthakprajapati@live.in', '123', 'admin'),
-(3, 'Sarthak Prajapati', 'abc', 'abc@live.in', '1234', 'user');
+(3, 'Sarthak Prajapati', 'abc', 'abc@live.in', '1234', 'user'),
+(4, 'Krishanu Malikk Thakur', 'krishanu', 'mkrishanu98@gmail.com', '12345', 'admin');
 
 -- --------------------------------------------------------
 
@@ -202,7 +205,17 @@ INSERT INTO `value_table` (`id`, `entity_id`, `attr_val`, `value`) VALUES
 (336, 77, 1, 'Krishanu'),
 (337, 77, 17, '2018-07-29'),
 (338, 77, 18, '2018-07-31'),
-(339, 77, 19, '3');
+(339, 77, 19, '3'),
+(340, 78, 5, '44'),
+(341, 78, 1, 'Sarthak Prajapati'),
+(342, 78, 17, '2018-07-30'),
+(343, 78, 18, '2018-08-05'),
+(344, 78, 19, '3'),
+(345, 79, 5, '46'),
+(346, 79, 1, 'Avan'),
+(347, 79, 17, '2018-12-11'),
+(348, 79, 18, '2018-12-15'),
+(349, 79, 19, '2');
 
 --
 -- Indexes for dumped tables
@@ -240,19 +253,19 @@ ALTER TABLE `value_table`
 -- AUTO_INCREMENT for table `entity`
 --
 ALTER TABLE `entity`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=78;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=80;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `value_table`
 --
 ALTER TABLE `value_table`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=340;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=350;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

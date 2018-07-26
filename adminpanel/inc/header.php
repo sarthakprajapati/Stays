@@ -24,22 +24,15 @@
                         </li>
                         <li>
                             <a href="add_hotel.php">
-                                <i class="fas fa-chart-bar"></i>Add Hotel</a>
+                                <i class="fas fa-plus-circle"></i>Add Hotel</a>
                         </li>
-                        <li class="has-sub">
-                            <a class="js-arrow" href="#">
-                                <i class="fas fa-copy"></i>Pages</a>
-                            <ul class="navbar-mobile-sub__list list-unstyled js-sub-list">
-                                <li>
-                                    <a href="login.html">Login</a>
-                                </li>
-                                <li>
-                                    <a href="register.html">Register</a>
-                                </li>
-                                <li>
-                                    <a href="forget-pass.html">Forget Password</a>
-                                </li>
-                            </ul>
+                        <li>
+                            <a href="add_hotel.php">
+                                <i class="fas fa-pencil-alt"></i>All Hotel</a>
+                        </li>
+                        <li>
+                            <a href="add_hotel.php">
+                                <i class="fas fa-pallet"></i>All Bookings</a>
                         </li>
                     </ul>
                 </div>
