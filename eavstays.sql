@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.0.1
+-- version 4.8.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 26, 2018 at 01:17 PM
--- Server version: 10.1.32-MariaDB
--- PHP Version: 7.2.5
+-- Generation Time: Jul 26, 2018 at 06:51 PM
+-- Server version: 10.1.31-MariaDB
+-- PHP Version: 7.2.7
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -19,7 +19,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `eav2`
+-- Database: `eavstays`
 --
 
 -- --------------------------------------------------------
@@ -93,7 +93,12 @@ INSERT INTO `entity` (`id`, `type`) VALUES
 (65, 'room'),
 (66, 'room'),
 (67, 'room'),
-(68, 'room');
+(68, 'room'),
+(69, 'room'),
+(70, 'room'),
+(71, 'room'),
+(72, 'room'),
+(73, 'room');
 
 -- --------------------------------------------------------
 
@@ -106,17 +111,17 @@ CREATE TABLE `users` (
   `fname` varchar(255) COLLATE utf8_bin NOT NULL,
   `username` varchar(255) COLLATE utf8_bin NOT NULL,
   `email` varchar(255) COLLATE utf8_bin NOT NULL,
-  `password` varchar(255) COLLATE utf8_bin NOT NULL
+  `password` varchar(255) COLLATE utf8_bin NOT NULL,
+  `role` varchar(255) COLLATE utf8_bin NOT NULL DEFAULT 'user'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 --
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `fname`, `username`, `email`, `password`) VALUES
-(1, 'Sarthak', 'sarthak_ishu11', 'sarthakprajapati@live.in', '123'),
-(2, 'Sarthak Prajapati', 'sarthak_ishu11', 'sarthakprajapati@live.in', '12345'),
-(3, 'Sarthak Prajapati', 'abc', 'abc@live.in', '123');
+INSERT INTO `users` (`id`, `fname`, `username`, `email`, `password`, `role`) VALUES
+(1, 'Sarthak', 'sarthak_ishu11', 'sarthakprajapati@live.in', '123', 'admin'),
+(3, 'Sarthak Prajapati', 'abc', 'abc@live.in', '1234', 'user');
 
 -- --------------------------------------------------------
 
@@ -160,7 +165,34 @@ INSERT INTO `value_table` (`id`, `entity_id`, `attr_val`, `value`) VALUES
 (291, 68, 6, '1'),
 (293, 68, 16, 'sdsdsfs'),
 (294, 68, 12, 'cards.jpeg'),
-(295, 68, 5, '44');
+(295, 68, 5, '44'),
+(296, 69, 11, '98'),
+(297, 69, 6, '1'),
+(298, 69, 15, '1'),
+(299, 69, 16, 'qwertyu'),
+(300, 69, 12, 'Capture.PNG'),
+(301, 69, 5, '44'),
+(302, 70, 11, '7899'),
+(303, 70, 6, '1'),
+(304, 70, 16, 'qwertyuimm'),
+(305, 70, 12, 'Capture.PNG'),
+(306, 70, 5, '63'),
+(307, 71, 11, '7548'),
+(308, 71, 15, '1'),
+(309, 71, 16, 'zxcvbnm'),
+(310, 71, 12, '2.PNG'),
+(311, 71, 5, '46'),
+(312, 72, 11, '1458'),
+(313, 72, 6, '1'),
+(314, 72, 15, '1'),
+(315, 72, 16, 'zxcvbnmmm'),
+(316, 72, 12, '1.PNG'),
+(317, 72, 5, '46'),
+(318, 73, 11, '1478'),
+(319, 73, 6, '1'),
+(320, 73, 16, 'zxserf'),
+(321, 73, 12, '1.PNG'),
+(322, 73, 5, '45');
 
 --
 -- Indexes for dumped tables
@@ -198,7 +230,7 @@ ALTER TABLE `value_table`
 -- AUTO_INCREMENT for table `entity`
 --
 ALTER TABLE `entity`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=69;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=74;
 
 --
 -- AUTO_INCREMENT for table `users`
@@ -210,7 +242,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `value_table`
 --
 ALTER TABLE `value_table`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=296;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=323;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
