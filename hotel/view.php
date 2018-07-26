@@ -1,7 +1,7 @@
 <?php 
     require_once '../adminpanel/inc/db.php';
     if(!isset($_GET['id']) && !isset($_GET['city'])){
-        header('location: index.php');
+        // header('location: index.php');
     }
     if(isset($_GET['id']) && !isset($_GET['city'])){
         // echo 'id';
@@ -62,7 +62,7 @@
                     <p style="color:red;text-decoration:line-through;">Rs.18,000</p>
                     <p>Rs. <?php echo $room['price'];?></p>
                 </div>
-                <a href="#">
+                <a href="book.php?id=<?php echo $room['id'];?>">
 				    <div class="tm-green-gradient-bg tm-city-price-container">
 						<span>Book now!</span>
 					</div>	
