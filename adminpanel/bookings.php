@@ -38,25 +38,23 @@ if(isset($_GET['del'])){
                                           <table class="table">
                                             <thead>
                                               <tr>
-                                                <th>#</th>
-                                                <th>Hotel Name</th>
-                                                <th>City</th>
-                                                <th>Room Details</th>
-                                                <th>Edit</th>
-                                                <th>Delete</th>
+                                                <th>Hotel Id</th>
+                                                <th>Name</th>
+                                                <th>Check-In</th>
+                                                <th>Check-Out</th>
+                                                <th>No. of Guests</th>
                                               </tr>
                                             </thead>
                                         <?php 
-                                            $hotels = $db->getAllHotel();
+                                            $hotels = $db->getAllBooking();
                                             foreach($hotels as $row){ ?>
                                                 <tbody>
                                                   <tr>
-                                                    <td><?php echo $row['id']; ?></td>
+                                                    <td><?php echo $row['hotel_id']; ?></td>
                                                     <td ><?php echo $row['name']; ?></td>
-                                                    <td><?php echo $row['city']; ?></td>
-                                                    <td style="text-align: center;"><a href="add_room.php?id=<?php echo $row['id']; ?>"><i class="fa fa-plus-circle"></i></a></td>
-                                                    <td style="text-align: center;"><a href="edit_hotel.php?edit=<?php echo $row['id']; ?>"><i class="fa fa-pencil-alt"></i></a></td>
-                                                    <td style="text-align: center;"><a href="edit_hotel.php?del=<?php echo $row['id']; ?>"><i class="fa fa-times"></i></a></td>
+                                                    <td><?php echo $row['check_in']; ?></td>
+                                                    <td><?php echo $row['check_out']; ?></td>
+                                                    <td><?php echo $row['numofper']; ?></td>
                                                   </tr>
                                                 </tbody>
                                             <?php } ?>

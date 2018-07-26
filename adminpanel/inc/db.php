@@ -263,5 +263,33 @@
             }
             return $result;
         }
+
+        public function getAllBooking(){
+            $query = 'SELECT *,entity.id as e_id, value_table.id as v_id FROM value_table INNER JOIN entity ON entity.id = value_table.entity_id WHERE entity.type = "book"';
+            $res = $this->query($query);
+            $result = array();
+            while($val = mysqli_fetch_assoc($res)){
+                $attrib = $this->getAttrib($val['attr_val']);
+                if($attrib == 'name'){
+                    $row['name'] = $val['value'];
+                }else if($attrib == 'hotel_id'){
+                    $row['hotel_id'] = $val['value'];
+                }else if($attrib == 'check_in'){
+                    $row['check_in'] = $val['value'];
+                }
+                else if($attrib == 'check_out'){
+                    $row['check_out'] = $val['value'];
+                }
+                else if($attrib == 'numofper'){
+                    $row['numofper'] = $val['value'];
+                }
+                $row['id'] = $val['e_id'];
+                if(isset($row['name']) && isset($row['hotel_id']) && isset($row['check_in']) && isset($row['check_out']) && isset($row['numofper'])){
+                    array_push($result, $row);
+                    unset($row);
+                }
+            }
+            return $result;
+        }
     }
     $db = new Database;

@@ -20,6 +20,10 @@
                             <a href="edit_hotel.php">
                             <i class="fas fa-pencil-alt "></i>All Hotels</a>
                         </li>
+                        <li>
+                            <a href="bookings.php">
+                            <i class="fas fa-pallet "></i>All Bookings</a>
+                        </li>
                     </ul>
                 </nav>
             </div>
