@@ -2,7 +2,7 @@
     class Database {
         private $host = 'localhost';
         private $user = 'root';
-        private $password = 'Krishanu#98';
+        private $password = '';
         private $dbname = 'eavstays';
         private $dbh;
         public function __construct(){
