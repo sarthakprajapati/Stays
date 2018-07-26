@@ -42,13 +42,6 @@
 						<div class="col-md-12">
                   <script src='https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyBXLUAvfnZWs0irxaMF8DBQscU64AhKqac'></script><div style='overflow:hidden;height:382px;width:100%;'><div id='gmap_canvas' style='height:382px;width:100%;'></div><style>#gmap_canvas img{max-width:none!important;background:none!important}</style></div> <a href='https://mapswebsite.net/'> </a> <script type='text/javascript' src='https://embedmaps.com/google-maps-authorization/script.js?id=f14cedb025e3f86b8ec7b7839aa95a36aad8847f'></script><script type='text/javascript'>function init_map(){var myOptions = {zoom:14,center:new google.maps.LatLng(28.380163,79.41054689999999),mapTypeId: google.maps.MapTypeId.SATELLITE};map = new google.maps.Map(document.getElementById('gmap_canvas'), myOptions);marker = new google.maps.Marker({map: map,position: new google.maps.LatLng(28.380163,79.41054689999999)});infowindow = new google.maps.InfoWindow({content:'<strong>Hartman College Road</strong><br>Paras Sweet<br>243001 Bareilly<br>'});google.maps.event.addListener(marker, 'click', function(){infowindow.open(map,marker);});infowindow.open(map,marker);}google.maps.event.addDomListener(window, 'load', init_map);</script> 
             </div>
-						<div class="contact-social">
-							<a href="#" class="tm-social-icon tm-social-facebook"><i class="fa fa-facebook"></i></a>
-				      		<a href="#" class="tm-social-icon tm-social-dribbble"><i class="fa fa-dribbble"></i></a>
-				      		<a href="#" class="tm-social-icon tm-social-twitter"><i class="fa fa-twitter"></i></a>
-				      		<a href="#" class="tm-social-icon tm-social-instagram"><i class="fa fa-instagram"></i></a>
-				      		<a href="#" class="tm-social-icon tm-social-google-plus"><i class="fa fa-google-plus"></i></a>
-						</div>
 					</div> 
 					<div class="col-lg-6 col-md-6 tm-contact-form-input">
 						<div class="form-group">

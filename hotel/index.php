@@ -75,7 +75,7 @@ require_once '../adminpanel/inc/db.php';?>
 			<div class="col-lg-4 col-md-4 col-sm-6">
 				<div class="tm-home-box-1 tm-home-box-1-2 tm-home-box-1-center">
 					<img src="../adminpanel/images/<?php echo $row['images']; ?>" alt="image" class="img-responsive" style="height: 250px; width: 100%;">
-					<a href="#">
+					<a href="view.php?id=<?php echo $row['id']; ?>">
 						<div class="tm-green-gradient-bg tm-city-price-container">
 							<span><?php echo $row['name']; ?></span>
 							<span><?php echo $row['city']; ?></span>

@@ -41,13 +41,13 @@
 			$username = $_POST['username'];
 			$password = $_POST['password'];
 			$all_query = "SELECT username,email from users WHERE username = '$username' OR email = '$email'";
-			$all_query_run = mysqli_query($conn,$all_query);
+			$all_query_run = $db->query($all_query);
 			if(mysqli_num_rows($all_query_run)>0){
 				$errmsg = "Username or Email Already in use!";
 			}
 			else{
 				$insert_query = "INSERT INTO `users` (`id`, `fname`, `username`, `email`, `password`) VALUES (NULL, '$fname', '$username', '$email', '$password');";
-				$insert_query_run = mysqli_query($conn,$insert_query);
+				$insert_query_run = $db->query($insert_query);
 				if($insert_query){
 					$msg = "User has been registered successfully";
 				}
