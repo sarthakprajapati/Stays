@@ -32,23 +32,23 @@ require_once '../adminpanel/inc/db.php';?>
 	<!-- gray bg -->	
 	<section class="container tm-home-section-1" id="more">
 		<div class="row">
-			<div class="col-lg-4 col-md-4 col-sm-6">
+			<div class="col-lg-4 col-md-4 col-sm-6" style>
 				<!-- Nav tabs -->
 				<div class="tm-home-box-1 tm-home-box-1-center">
-					<ul class="nav nav-tabs tm-white-bg" role="tablist" id="hotelCarTabs">
+					<ul class="nav nav-tabs tm-white-bg" role="tablist" id="hotelCarTabs" style="height:99px;">
 					    <li role="presentation" class="active">
-					    	<a href="#hotel" aria-controls="hotel" role="tab" data-toggle="tab">Hotel</a>
+					    	<a href="#hotel" aria-controls="hotel" role="tab" data-toggle="tab"><h1>Hotel</h1></a>
 					    </li>
 					</ul>
 
 					<!-- Tab panes -->
-					<div class="tab-content">
+					<div class="tab-content" >
 					    <div role="tabpanel" class="tab-pane fade in active tm-white-bg" id="hotel">
 					    	<div class="tm-search-box effect2">
-								<form action="#" method="post" class="hotel-search-form">
-									<div class="tm-form-inner">
+								<form action="view.php" method="get" class="hotel-search-form">
+									<div class="tm-form-inner" style="height:151px;">
 										<div class="form-group">
-							            	 <select class="form-control">
+							            	 <select class="form-control" name="id">
 							            	 	<option value="">-- Select Hotel -- </option>
 							            	 	<?php 
 												    $hotels = $db->getAllHotel();
@@ -57,35 +57,9 @@ require_once '../adminpanel/inc/db.php';?>
 												<?php } ?>
 											</select> 
 							          	</div>
-							          	<div class="form-group">
-							                <div class='input-group date' id='datetimepicker1'>
-							                    <input type='text' class="form-control" placeholder="Check-in Date" />
-							                    <span class="input-group-addon">
-							                        <span class="fa fa-calendar"></span>
-							                    </span>
-							                </div>
-							            </div>
-							          	<div class="form-group">
-							                <div class='input-group date' id='datetimepicker2'>
-							                    <input type='text' class="form-control" placeholder="Check-out Date" />
-							                    <span class="input-group-addon">
-							                        <span class="fa fa-calendar"></span>
-							                    </span>
-							                </div>
-							            </div>
-							            <div class="form-group margin-bottom-0">
-							                <select class="form-control">
-							            	 	<option value="">-- Guests -- </option>
-							            	 	<option value="1">1</option>
-												<option value="2">2</option>
-												<option value="3">3</option>
-												<option value="4">4</option>
-												<option value="5p">5+</option>
-											</select> 
-							            </div>
 									</div>							
 						            <div class="form-group tm-yellow-gradient-bg text-center">
-						            	<button type="submit" name="submit" class="tm-yellow-btn">Check Now</button>
+						            	<button type="submit" class="tm-yellow-btn">Check Now</button>
 						            </div>  
 								</form>
 							</div>

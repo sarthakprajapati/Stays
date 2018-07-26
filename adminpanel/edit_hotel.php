@@ -1,6 +1,6 @@
 <?php
 require 'inc/db.php';
-
+session_start();
 if(isset($_GET['del'])){
     $del_id = $_GET['del'];
     $db->delHotel($del_id);

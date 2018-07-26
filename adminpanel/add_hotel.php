@@ -1,5 +1,6 @@
 <?php
 require_once 'inc/db.php';
+session_start();
 $type = 'alert-success';
 $msg = '';
     if($_SERVER['REQUEST_METHOD'] == 'POST'){

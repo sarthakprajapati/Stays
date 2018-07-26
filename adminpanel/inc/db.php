@@ -11,6 +11,20 @@
                 die('Could not connect to the database!');
             }
         }
+
+        public function book($values){
+            $this->query('INSERT INTO entity(type) VALUES("book")');
+            $id = $this->latestId();
+            $flag = false;
+            foreach($values as $index => $row){
+                $res = $this->query('INSERT INTO value_table(entity_id, attr_val, value) VALUES('.$id.', '.$this->getAttribId($index).',"'.$row.'")');
+                if(!$res){
+                    $flag = true;
+                }
+            }
+            return true;
+        }
+
         public function getIdRooms($id){
             $res = $this->query('SELECT * FROM value_table WHERE entity_id='.$id);
             $res = mysqli_fetch_all($res, MYSQLI_ASSOC);

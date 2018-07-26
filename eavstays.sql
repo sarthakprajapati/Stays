@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.0
+-- version 4.8.0.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 26, 2018 at 06:51 PM
--- Server version: 10.1.31-MariaDB
--- PHP Version: 7.2.7
+-- Generation Time: Jul 26, 2018 at 08:28 PM
+-- Server version: 10.1.32-MariaDB
+-- PHP Version: 7.2.5
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -55,7 +55,11 @@ INSERT INTO `attribute` (`id`, `attribute`, `type`) VALUES
 (13, 'address', 'char'),
 (14, 'city', 'char'),
 (15, 'wifi', 'char'),
-(16, 'detail_room', 'char');
+(16, 'detail_room', 'char'),
+(17, 'check_in', 'string'),
+(18, 'check_out', 'string'),
+(19, 'numofper', 'int'),
+(20, 'book_id', 'int');
 
 -- --------------------------------------------------------
 
@@ -98,7 +102,8 @@ INSERT INTO `entity` (`id`, `type`) VALUES
 (70, 'room'),
 (71, 'room'),
 (72, 'room'),
-(73, 'room');
+(73, 'room'),
+(77, 'book');
 
 -- --------------------------------------------------------
 
@@ -192,7 +197,12 @@ INSERT INTO `value_table` (`id`, `entity_id`, `attr_val`, `value`) VALUES
 (319, 73, 6, '1'),
 (320, 73, 16, 'zxserf'),
 (321, 73, 12, '1.PNG'),
-(322, 73, 5, '45');
+(322, 73, 5, '45'),
+(335, 77, 5, '44'),
+(336, 77, 1, 'Krishanu'),
+(337, 77, 17, '2018-07-29'),
+(338, 77, 18, '2018-07-31'),
+(339, 77, 19, '3');
 
 --
 -- Indexes for dumped tables
@@ -230,7 +240,7 @@ ALTER TABLE `value_table`
 -- AUTO_INCREMENT for table `entity`
 --
 ALTER TABLE `entity`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=74;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=78;
 
 --
 -- AUTO_INCREMENT for table `users`
@@ -242,7 +252,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `value_table`
 --
 ALTER TABLE `value_table`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=323;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=340;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
