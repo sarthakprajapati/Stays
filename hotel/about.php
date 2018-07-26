@@ -66,14 +66,12 @@
 			<div class="row">
 				<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
 					<div class="tm-about-box-1" style="width: 100%;">
-						<a href="#"><img src="img/about-4.jpg" alt="img" class="tm-about-box-1-img" style="height: 140px;"></a>
+						<a href="#"><img src="img/pp2.jpg" alt="img" class="tm-about-box-1-img" style="height: 140px;"></a>
 						<h3 class="tm-about-box-1-title">Krishanu Malikk Thakur <span>( Developer )</span></h3>
 						<p class="margin-bottom-15 gray-text">PHP Development Intern </p>
 						<div class="gray-text">
-							<a href="#" class="tm-social-icon"><i class="fa fa-twitter"></i></a>
-							<a href="#" class="tm-social-icon"><i class="fa fa-facebook"></i></a>
-							<a href="#" class="tm-social-icon"><i class="fa fa-pinterest"></i></a>
-							<a href="#" class="tm-social-icon"><i class="fa fa-google-plus"></i></a>
+							<a href="https://www.facebook.com/krishanu.mallikthakur" class="tm-social-icon"><i class="fa fa-facebook"></i></a>
+							<a href="https://www.github.com/Krishanu16298" class="tm-social-icon"><i class="fa fa-github"></i></a>
 						</div>
 					</div>
 				</div>
@@ -83,10 +81,9 @@
 						<h3 class="tm-about-box-1-title">Sarthak Prajapati <span>( Developer )</span></h3>
 						<p class="margin-bottom-15 gray-text"> PHP Development Intern </p>
 						<div class="gray-text">
-							<a href="#" class="tm-social-icon"><i class="fa fa-twitter"></i></a>
-							<a href="#" class="tm-social-icon"><i class="fa fa-facebook"></i></a>
-							<a href="#" class="tm-social-icon"><i class="fa fa-pinterest"></i></a>
-							<a href="#" class="tm-social-icon"><i class="fa fa-google-plus"></i></a>
+							<a href="https://www.twitter.com/sarthak_ishu11" class="tm-social-icon"><i class="fa fa-twitter"></i></a>
+							<a href="https://www.facebook.com/sarthakprajapati11" class="tm-social-icon"><i class="fa fa-facebook"></i></a>
+							<a href="https://www.github.com/sarthakprajapati" class="tm-social-icon"><i class="fa fa-github"></i></a>
 						</div>
 					</div>
 				</div>

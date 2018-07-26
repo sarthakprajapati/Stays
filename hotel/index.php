@@ -12,16 +12,16 @@ require_once '../adminpanel/inc/db.php';?>
 		  <ul class="slides">
 		    <li>
 			    <div class="tm-banner-inner">
-			    	<div id="searchbar"> 
-		  				<form action="view.php" method="GET">
-		  					<div class="form-group">
-		  					<input type="text" name="city" placeholder="Search" class="form-control">
-		  					</div>
-		  				</form>
-		  			</div>
+			    	
 					<h1 class="tm-banner-title">Find <span class="tm-yellow-text">The Best</span> Place</h1>
 					<p class="tm-banner-subtitle">For Your Holidays</p>
-					<a href="#more" class="tm-banner-link">Learn More</a>	
+					<div id="searchbar" style="margin-top: 15px;"> 
+		  				<form action="view.php" method="GET">
+		  					<div class="form-group">
+		  					<input type="text" name="city" placeholder="Search Your Hotel!" class="form-control" style="width: 100%; padding-left: -50px; height: 50px;">
+		  					</div>
+		  				</form>
+		  			</div>	
 				</div>
 				<img src="img/banner-1.jpg" alt="Image" />	
 		    </li>
@@ -78,7 +78,7 @@ require_once '../adminpanel/inc/db.php';?>
 					<a href="#">
 						<div class="tm-green-gradient-bg tm-city-price-container">
 							<span><?php echo $row['name']; ?></span>
-							<span>$6,600</span>
+							<span><?php echo $row['city']; ?></span>
 						</div>	
 					</a>			
 				</div>				
@@ -91,7 +91,7 @@ require_once '../adminpanel/inc/db.php';?>
 			<div class="row">				
 				<div class="tm-section-header">
 					<div class="col-lg-3 col-md-3 col-sm-3"><hr></div>
-					<div class="col-lg-6 col-md-6 col-sm-6"><h2 class="tm-section-title">Lorem Ipsum Dolor</h2></div>
+					<div class="col-lg-6 col-md-6 col-sm-6"><h2 class="tm-section-title">Testimonials</h2></div>
 					<div class="col-lg-3 col-md-3 col-sm-3"><hr></div>	
 				</div>
 			</div>
