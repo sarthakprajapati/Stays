@@ -1,0 +1,10 @@
+body{
+	color: black;
+}
+
+.card{
+    padding: 20px !important;
+}
+.bgc-dark{
+    background:rgba(10, 10, 10, 0.8) !important;
+}
