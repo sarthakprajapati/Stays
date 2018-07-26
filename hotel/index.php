@@ -106,7 +106,6 @@ require_once '../adminpanel/inc/db.php';?>
 					<div class="tm-home-box-2">						
 						<img src="../adminpanel/images/<?php echo $row['images']; ?>" alt="image" class="img-responsive" style="height: 200px; width: 100%;">
 						<?php echo "<h3>".$row['detail']."</h3>"; ?>
-						<p class="tm-date">28 March 2016</p>
 						<div class="tm-home-box-2-container">
 							<a href="#" class="tm-home-box-2-link"><i class="fa fa-heart tm-home-box-2-icon border-right"></i></a>
 							<a href="#" class="tm-home-box-2-link"><span class="tm-home-box-2-description">Travel</span></a>

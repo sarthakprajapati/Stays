@@ -17,25 +17,26 @@
             <nav class="navbar-mobile">
                 <div class="container-fluid">
                     <ul class="navbar-mobile__list list-unstyled">
-                        <li class="has-sub">
-                            <a class="js-arrow" href="#">
+                        <li class="active has-sub">
+                            <a class="js-arrow" href="index.php">
                                 <i class="fas fa-tachometer-alt"></i>Dashboard</a>
                             
                         </li>
                         <li>
                             <a href="add_hotel.php">
-                                <i class="fas fa-plus-circle"></i>Add Hotel</a>
+                            <i class="fas fa-plus-circle"></i>Add Hotel</a>
                         </li>
                         <li>
-                            <a href="add_hotel.php">
-                                <i class="fas fa-pencil-alt"></i>All Hotel</a>
+                            <a href="edit_hotel.php">
+                            <i class="fas fa-pencil-alt "></i>All Hotels</a>
                         </li>
                         <li>
-                            <a href="add_hotel.php">
-                                <i class="fas fa-pallet"></i>All Bookings</a>
+                            <a href="bookings.php">
+                            <i class="fas fa-pallet "></i>All Bookings</a>
                         </li>
                     </ul>
                 </div>
             </nav>
         </header>
+
         <!-- END HEADER MOBILE-->
