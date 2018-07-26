@@ -7,7 +7,7 @@
         $username = $_POST['username'];
         $password = $_POST['password'];
         if($user = $db->userExists($username)){
-            if(password_verify($password, $user['password'])){
+            if($db->password_verify($password, $username)){
                 session_start();
                 $_SESSION['id'] = $user['id'];
                 $_SESSION['name'] = $user['fname'];

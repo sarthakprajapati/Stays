@@ -34,20 +34,19 @@
                 $flag = 'deterr';
             }
         }
-
-        if (move_uploaded_file($image_tmp,"images/$image")) {
-    
+        $img = move_uploaded_file($image_tmp,"images/$image");
+        if ($img) {
+            $result['images'] = $image;
             } else {
                 $flag = 'imgerr';
             }
          
         $result['hotel_id'] = $id;
         if(isset($_POST['price']) && $_POST['price'] != '' && $_POST['detail_room'] != '' && isset($_POST['detail_room'])){
-             if($db->addRoom($result,$id)){
+             if($db->addRoom($result)){
                  $type = 'alert alert-info';
                  $msg = 'Room successfully added!';
              }
-            var_dump($result);
         }
         if($flag == 'priceerr'){
             $type = 'alert alert-danger';

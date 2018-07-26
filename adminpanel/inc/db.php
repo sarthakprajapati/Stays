@@ -11,9 +11,111 @@
                 die('Could not connect to the database!');
             }
         }
-        public function addRoom($values,$entity_id){
+        public function getIdRooms($id){
+            $res = $this->query('SELECT * FROM value_table WHERE entity_id='.$id);
+            $res = mysqli_fetch_all($res, MYSQLI_ASSOC);
+        }
+        public function getRoomsbyId($hotel_id){
+            $hotel = $this->getHotelById($hotel_id);
+            $res1 = $this->query('SELECT * FROM value_table WHERE value='.$hotel_id);
+            $result = array();
+            while($col = mysqli_fetch_assoc($res1)){
+                // var_dump($col);
+            $res = $this->query('SELECT * FROM value_table WHERE entity_id='.$col['entity_id']);
+            while($val = mysqli_fetch_assoc($res)){
+                // var_dump($val);
+                $attrib = $this->getAttrib($val['attr_val']);
+                // var_dump($attrib);
+                if($attrib == 'price'){
+                    $row['price'] = $val['value'];
+                }else if($attrib == 'detail_room'){
+                    $row['detail'] = $val['value'];
+                }else if($attrib == 'wifi'){
+                    $row['WiFi'] = true;
+                }
+                else if($attrib == 'AC'){
+                    $row['AC'] = true;
+                }
+                else if($attrib == 'images'){
+                    $row['images'] = $val['value'];
+                }
+                else if($attrib == 'hotel_id'){
+                    $row['id'] = $val['value'];
+                }
+                
+                if(isset($row['price']) && isset($row['detail']) && isset($row['images']) && isset($row['id'])){
+                    // var_dump($row);
+                    $row['hotel'] = $hotel;
+                    array_push($result, $row);
+                    unset($row);
+                }
+            }
+        }
+            // var_dump($result);
+            if(empty($result)){
+                return [];
+            }
+            return $result;
+        }
+
+        public function getRoomsByCity($city){
+            $res = $this->query('SELECT * FROM value_table WHERE value="'.$city.'"');
+            $res = mysqli_fetch_all($res, MYSQLI_ASSOC);
+            $result = array();
+            foreach($res as $rows){
+                $hotel = $this->getHotelById($rows['entity_id']);
+                // var_dump($hotel);
+                $res1 = $this->query('SELECT * FROM value_table WHERE value='.$this->getIdEntity($hotel['name']));
+                $res1 = mysqli_fetch_all($res1, MYSQLI_ASSOC);
+                // var_dump($res1);
+                
+                foreach($res1 as $col){
+                    $res2 = $this->query('SELECT * FROM value_table WHERE entity_id='.$col['entity_id']);
+                    while($val = mysqli_fetch_assoc($res2)){
+                        // var_dump($val);
+                        $attrib = $this->getAttrib($val['attr_val']);
+                        if($attrib == 'price'){
+                            $row['price'] = $val['value'];
+                        }else if($attrib == 'detail_room'){
+                            $row['detail'] = $val['value'];
+                        }else if($attrib == 'wifi'){
+                            $row['WiFi'] = true;
+                        }
+                        else if($attrib == 'AC'){
+                            $row['AC'] = true;
+                        }
+                        else if($attrib == 'images'){
+                            $row['images'] = $val['value'];
+                        }
+                        else if($attrib == 'hotel_id'){
+                            $row['id'] = $val['value'];
+                        }
+                        if(isset($row['price']) && isset($row['detail'])&& isset($row['images']) && isset($row['id'])){
+                            // var_dump($row);
+                            $row['hotel'] = $hotel;
+                            array_push($result, $row);
+                            unset($row);
+
+                        }
+                    }
+                }
+            }
+            if(empty($result)){
+                return [];
+            }
+            return $result;
+        }
+
+        public function getRooms($hotel_id, $city){
+            $hotel = $this->getHotelById($hotel_id);
+            if($hotel['city'] != $city){
+                return [];
+            }
+            return $this->getRoomsById($hotel_id);
+        }
+        public function addRoom($values){
             $this->query('INSERT INTO entity(type) VALUES("room")');
-            $id = $entity_id;
+            $id = $this->latestId();
             $flag = false;
             foreach($values as $index => $row){
                 $res = $this->query('INSERT INTO value_table(entity_id, attr_val, value) VALUES('.$id.', '.$this->getAttribId($index).',"'.$row.'")');
@@ -40,6 +142,15 @@
             if(mysqli_num_rows($res) == 1){
                 $row = mysqli_fetch_assoc($res);
                 return $row;
+            }else{
+                return false;
+            }
+        }
+
+        public function password_verify($pass,$user){
+            $res = $this->query("SELECT * FROM users WHERE username='$user' AND password='$pass'");
+            if(mysqli_num_rows($res) == 1){
+                return true;
             }else{
                 return false;
             }
@@ -104,6 +215,7 @@
         }
         public function getHotelById($id){
            $res = $this->query('SELECT * FROM value_table WHERE entity_id='.$id);
+           $row = [];
            while($val = mysqli_fetch_assoc($res)){
                $attrib = $this->getAttrib($val['attr_val']);
                $row[$attrib] = $val['value'];

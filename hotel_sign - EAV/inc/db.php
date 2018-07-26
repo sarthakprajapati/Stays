@@ -1,9 +1,10 @@
 <?php
+require "include/db.php";
     class Database {
         private $host = 'localhost';
         private $user = 'root';
         private $password = 'Krishanu#98';
-        private $dbname = 'eav2';
+        private $dbname = 'eavstays';
 
         private $dbh;
 
@@ -32,6 +33,15 @@
             }
         }
 
+        public function facilityExists($attr, $id){
+            $res = $this->query('SELECT * FROM value_table WHERE attr_val="'.$attr.'" AND entity_id='.$id);
+            if(mysqli_num_rows($res) > 0){
+                return true;
+            }else{
+                return false;
+            }
+        }
+
         public function latestId(){
             $res = $this->query('SELECT MAX(id) FROM entity');
             if($res !== null){
@@ -45,20 +55,22 @@
             return $res['id'];
         }
 
-        public function addUser($name, $username, $email, $password){
+        public function addUser($name, $username, $email, $password, $image){
             $this->query('INSERT INTO entity(type) VALUES("user")');
             $id = $this->latestId();
-            $res = $this->query('INSERT INTO value_table(entity_id, attr_val, value) VALUES('.$id.', '.$this->getAttribId('name').',"'.$name.'"),('.$id.', '.$this->getAttribId('email').',"'.$email.'"),('.$id.', '.$this->getAttribId('username').',"'.$username.'"),('.$id.', '.$this->getAttribId('password').',"'.$password.'")');
+
+            $res = $this->query('INSERT INTO value_table(entity_id, attr_val, value) VALUES('.$id.', '.$this->getAttribId('name').',"'.$name.'"),('.$id.', '.$this->getAttribId('email').',"'.$email.'"),('.$id.', '.$this->getAttribId('username').',"'.$username.'"),('.$id.', '.$this->getAttribId('password').',"'.$password.'"),('.$id.', '.$this->getAttribId('image').',"'.$image.'")');
             if($res){
                 return true;
             }else{
                 return false;
             }
         }
-        public function addHotel($name/*, $username, $email, $password*/,$city, $image, $detail, $address){
+        public function addHotel($name, $username, $email, $password, $image){
             $this->query('INSERT INTO entity(type) VALUES("hotel")');
             $id = $this->latestId();
-            $res = $this->query('INSERT INTO value_table(entity_id, attr_val, value) VALUES('.$id.', '.$this->getAttribId('name').',"'.$name.'"),('.$id.', '.$this->getAttribId('images').',"'.$image.'"),('.$id.', '.$this->getAttribId('address').',"'.$address.'"),('.$id.', '.$this->getAttribId('detail').',"'.$detail.'"),('.$id.', '.$this->getAttribId('city').',"'.$city.'")');
+
+            $res = $this->query('INSERT INTO value_table(entity_id, attr_val, value) VALUES('.$id.', '.$this->getAttribId('name').',"'.$name.'"),('.$id.', '.$this->getAttribId('email').',"'.$email.'"),('.$id.', '.$this->getAttribId('username').',"'.$username.'"),('.$id.', '.$this->getAttribId('password').',"'.$password.'"),('.$id.', '.$this->getAttribId('image').',"'.$image.'")');
             if($res){
                 return true;
             }else{
@@ -72,10 +84,25 @@
             return $res['attribute'];
         }
 
+        public function getAttribType($id){
+            $res = $this->query('SELECT * FROM attribute WHERE id='.$id);
+            $res = mysqli_fetch_assoc($res);
+            return $res['type'];
+        }
+
         public function getIdEntity($email){
             $res = $this->query('SELECT entity_id FROM value_table WHERE value="'.$email.'"');
             $res = mysqli_fetch_assoc($res);
             return $res['entity_id'];
+        }
+
+        public function addValue($id, $attr, $value){
+            $res = $this->query('INSERT INTO value_table(entity_id, attr_val, value) values("'.$id.'","'.$this->getAttribId($attr).'","'.$value.'")');
+            if($res){
+                return true;
+            }else{
+                return false;
+            }
         }
 
         public function getAllHotel(){
@@ -86,23 +113,26 @@
                 $attrib = $this->getAttrib($val['attr_val']);
                 if($attrib == 'name'){
                     $row['name'] = $val['value'];
-                }else if($attrib == 'city'){
-                    $row['city'] = $val['value'];
-                }else if($attrib == 'address'){
-                    $row['address'] = $val['value'];
+                }else if($attrib == 'username'){
+                    $row['username'] = $val['value'];
+                }else if($attrib == 'email'){
+                    $row['email'] = $val['value'];
                 }
-                else if($attrib == 'detail'){
-                    $row['detail'] = $val['value'];
-                }
-                else if($attrib == 'images'){
-                    $row['images'] = $val['value'];
-                }
-                if(isset($row['name']) && isset($row['city']) && isset($row['address']) && isset($row['detail']) && isset($row['images'])){
+                if(isset($row['name']) && isset($row['username']) && isset($row['email'])){
                     array_push($result, $row);
                     unset($row);
                 }
             }
             return $result;
+        }
+
+        public function getHotelById($id){
+            $res = $this->query('SELECT * FROM value_table entity_id='.$id);
+            while($val = mysqli_fetch_assoc($res)){
+                $attrib = $this->getAttrib($val['attr_val']);
+                $row[$attrib] = $val['value'];
+            }
+            return $row;
         }
     }
 

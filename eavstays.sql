@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.0
+-- version 4.8.0.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 25, 2018 at 09:58 PM
--- Server version: 10.1.31-MariaDB
--- PHP Version: 7.2.7
+-- Generation Time: Jul 26, 2018 at 01:17 PM
+-- Server version: 10.1.32-MariaDB
+-- PHP Version: 7.2.5
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -19,7 +19,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `eavstays`
+-- Database: `eav2`
 --
 
 -- --------------------------------------------------------
@@ -88,21 +88,12 @@ INSERT INTO `entity` (`id`, `type`) VALUES
 (44, 'hotel'),
 (45, 'hotel'),
 (46, 'hotel'),
-(47, 'room'),
-(48, 'room'),
-(49, 'room'),
-(50, 'room'),
-(51, 'room'),
-(52, 'room'),
-(53, 'room'),
-(54, 'room'),
-(55, 'room'),
-(56, 'room'),
-(57, 'room'),
-(58, 'room'),
-(59, 'room'),
-(60, 'room'),
-(61, 'room');
+(63, 'hotel'),
+(64, 'room'),
+(65, 'room'),
+(66, 'room'),
+(67, 'room'),
+(68, 'room');
 
 -- --------------------------------------------------------
 
@@ -159,7 +150,17 @@ INSERT INTO `value_table` (`id`, `entity_id`, `attr_val`, `value`) VALUES
 (188, 46, 12, 'd6f2026858954c4cb23aa7967d505711-84956-53845.jpg'),
 (189, 46, 13, '88-89, Bijwasan Road, Kapashera, New Delhi, Delhi'),
 (190, 46, 0, 'Located in Kapashera, New Delhi, The Muse Sarovar Portico offers a comfortable stay for all. It offers easy access to the airport and railway station making it a convenient destination. The hotel presents the ideal blend of aesthetic and functionality to '),
-(191, 46, 14, 'Delhi');
+(191, 46, 14, 'Delhi'),
+(266, 63, 1, 'Tojours pur'),
+(267, 63, 12, 'abstract-art-bark-983200.jpg'),
+(268, 63, 13, 'useless'),
+(269, 63, 0, 'useless'),
+(270, 63, 14, 'london'),
+(290, 68, 11, '7800'),
+(291, 68, 6, '1'),
+(293, 68, 16, 'sdsdsfs'),
+(294, 68, 12, 'cards.jpeg'),
+(295, 68, 5, '44');
 
 --
 -- Indexes for dumped tables
@@ -197,7 +198,7 @@ ALTER TABLE `value_table`
 -- AUTO_INCREMENT for table `entity`
 --
 ALTER TABLE `entity`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=62;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=69;
 
 --
 -- AUTO_INCREMENT for table `users`
@@ -209,7 +210,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `value_table`
 --
 ALTER TABLE `value_table`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=261;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=296;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

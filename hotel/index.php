@@ -1,5 +1,5 @@
 <?php require_once 'include/header.php';
-require_once 'include/db.php';?>
+require_once '../adminpanel/inc/db.php';?>
 <?php
 		$file = __FILE__;
     $filename = basename($file,'.php');
@@ -12,10 +12,10 @@ require_once 'include/db.php';?>
 		  <ul class="slides">
 		    <li>
 			    <div class="tm-banner-inner">
-			    	<div id="searchbar">
-		  				<form>
+			    	<div id="searchbar"> 
+		  				<form action="view.php" method="GET">
 		  					<div class="form-group">
-		  					<input type="text" name="q" placeholder="Search" class="form-control">
+		  					<input type="text" name="city" placeholder="Search" class="form-control">
 		  					</div>
 		  				</form>
 		  			</div>
@@ -24,36 +24,6 @@ require_once 'include/db.php';?>
 					<a href="#more" class="tm-banner-link">Learn More</a>	
 				</div>
 				<img src="img/banner-1.jpg" alt="Image" />	
-		    </li>
-		    <li>
-			    <div class="tm-banner-inner">
-			    	<div id="searchbar">
-		  				<form>
-		  					<div class="form-group">
-		  					<input type="text" name="q" placeholder="Search" class="form-control">
-		  					</div>
-		  				</form>
-		  			</div>
-					<h1 class="tm-banner-title">Lorem <span class="tm-yellow-text">Ipsum</span> Dolor</h1>
-					<p class="tm-banner-subtitle">Wonderful Destinations</p>
-					<a href="#more" class="tm-banner-link">Learn More</a>	
-				</div>
-		      <img src="img/banner-2.jpg" alt="Image" />
-		    </li>
-		    <li>
-			    <div class="tm-banner-inner">
-			    	<div id="searchbar">
-		  				<form>
-		  					<div class="form-group">
-		  					<input type="text" name="q" placeholder="Search" class="form-control">
-		  					</div>
-		  				</form>
-		  			</div>
-					<h1 class="tm-banner-title">Proin <span class="tm-yellow-text">Gravida</span> Nibhvell</h1>
-					<p class="tm-banner-subtitle">Velit Auctor</p>
-					<a href="#more" class="tm-banner-link">Learn More</a>	
-				</div>
-		      <img src="img/banner-3.jpg" alt="Image" />
 		    </li>
 		  </ul>
 		</div>	
@@ -64,7 +34,7 @@ require_once 'include/db.php';?>
 		<div class="row">
 			<div class="col-lg-4 col-md-4 col-sm-6">
 				<!-- Nav tabs -->
-				<div class="tm-home-box-1">
+				<div class="tm-home-box-1 tm-home-box-1-center">
 					<ul class="nav nav-tabs tm-white-bg" role="tablist" id="hotelCarTabs">
 					    <li role="presentation" class="active">
 					    	<a href="#hotel" aria-controls="hotel" role="tab" data-toggle="tab">Hotel</a>
@@ -113,50 +83,6 @@ require_once 'include/db.php';?>
 												<option value="5p">5+</option>
 											</select> 
 							            </div>
-									</div>							
-						            <div class="form-group tm-yellow-gradient-bg text-center">
-						            	<button type="submit" name="submit" class="tm-yellow-btn">Check Now</button>
-						            </div>  
-								</form>
-							</div>
-					    </div>
-					    <div role="tabpanel" class="tab-pane fade tm-white-bg" id="car">
-							<div class="tm-search-box effect2">
-								<form action="#" method="post" class="hotel-search-form">
-									<div class="tm-form-inner">
-										<div class="form-group">
-							            	 <select class="form-control">
-							            	 	<option value="">-- Select Model -- </option>
-							            	 	<option value="shangrila">BMW</option>
-												<option value="chatrium">Mercedes-Benz</option>
-												<option value="fourseasons">Toyota</option>
-												<option value="hilton">Honda</option>
-											</select> 
-							          	</div>
-							          	<div class="form-group">
-							                <div class='input-group date-time' id='datetimepicker3'>
-							                    <input type='text' class="form-control" placeholder="Pickup Date" />
-							                    <span class="input-group-addon">
-							                        <span class="fa fa-calendar"></span>
-							                    </span>
-							                </div>
-							            </div>
-							          	<div class="form-group">
-							                <div class='input-group date-time' id='datetimepicker4'>
-							                    <input type='text' class="form-control" placeholder="Return Date" />
-							                    <span class="input-group-addon">
-							                        <span class="fa fa-calendar"></span>
-							                    </span>
-							                </div>
-							            </div>
-							            <div class="form-group">
-							            	 <select class="form-control">
-							            	 	<option value="">-- Options -- </option>
-							            	 	<option value="">Child Seat</option>
-												<option value="">GPS Navigator</option>
-												<option value="">Insurance</option>
-											</select> 
-							          	</div>							           
 									</div>							
 						            <div class="form-group tm-yellow-gradient-bg text-center">
 						            	<button type="submit" name="submit" class="tm-yellow-btn">Check Now</button>

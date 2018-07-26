@@ -1,4 +1,4 @@
-<?php require_once '../inc/db.php' ?>
+<?php require_once '../adminpanel/inc/db.php' ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>

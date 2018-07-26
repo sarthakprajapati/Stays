@@ -2,14 +2,14 @@
 <div class="tm-header">
   		<div class="container">
   			<div class="row">
-  				<div class="col-lg-5 col-md-3 col-sm-3 tm-site-name-container">
+  				<div class="col-lg-6 col-md-3 col-sm-3 tm-site-name-container">
   					<a href="#" class="tm-site-name">Stays</a>	
   				</div>
-	  			<div class="col-lg-7 col-md-9 col-sm-9">
+	  			<div class="col-lg-6 col-md-3 col-sm-3">
 	  				<div class="mobile-menu-icon">
 		              <i class="fa fa-bars"></i>
 		            </div>
-	  				<nav class="tm-nav">
+	  				<nav class="tm-nav" style="text-align:right;">
 	  					<?php $base_dir = dirname($filename); ?>
 						<ul>
 							<li><a href="index.php" class="<?php echo ($filename == 'index')?'active':'';?>">Home</a></li>
